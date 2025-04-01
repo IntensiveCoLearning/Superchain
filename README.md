@@ -109,7 +109,7 @@ https://defillama.com/chains
 | [stephanie797](https://github.com/IntensiveCoLearning/Superchain/blob/main/stephanie797.md) | ✅ |   | | | | | | | | | | | |
 | [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ |   | | | | | | | | | | | |
 | [WANgrunnzl](https://github.com/IntensiveCoLearning/Superchain/blob/main/WANgrunnzl.md) | ✅ |   | | | | | | | | | | | |
-| [Soleil_YSY](https://github.com/IntensiveCoLearning/Superchain/blob/main/Soleil_YSY.md) | ⭕️ |   | | | | | | | | | | | |
+| [Soleil_YSY](https://github.com/IntensiveCoLearning/Superchain/blob/main/Soleil_YSY.md) | ⭕️ | ✅ | | | | | | | | | | | |
 | [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ |   | | | | | | | | | | | |
 | [tuwu233](https://github.com/IntensiveCoLearning/Superchain/blob/main/tuwu233.md) | ⭕️ |   | | | | | | | | | | | |
 | [Elorze](https://github.com/IntensiveCoLearning/Superchain/blob/main/Elorze.md) | ✅ | ✅ | | | | | | | | | | | |
@@ -122,6 +122,7 @@ https://defillama.com/chains
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | | | | | | | | | | | |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | | | | | | | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
