@@ -82,6 +82,11 @@ RPC URL：https://eth-sepolia.g.alchemy.com/v2/2yl2tmjTsINyYC34saJo0BYbn_ytz9t-�
 货币符号：ETH
 区块浏览器 URL：https://sepolia.etherscan.io
 
+四、使用Sepolia测试网水龙头（Faucet）获取SepoliaETH，我选择的是alchemy
+https://www.alchemy.com/faucets/ethereum-sepolia
+
+
+
 
 
 
