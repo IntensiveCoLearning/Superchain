@@ -61,6 +61,32 @@ ZK-Rollups(零知识卷叠）：用数学证明（零知识证明）直接验证
 
 
 
+### 2025.04.02
+尝试搭建测试链。
+————————————————————————————————————————
+环境准备：
+一、设置MetaMask钱包：用于管理加密货币和区块链应用程序交互的工具。主要功能：
+1、数字资产管理：MetaMask允许创建和管理以太坊钱包地址，存储ETH和其他兼容的代币。可以通过它查看余额、发送和接受加密货币。
+2、连接去中心化应用：它可以充当用户和以太坊区块链之间的桥梁。可以直接在浏览器中访问去中心化金融、NFT市场、区块链游戏等应用，无需运行完整 的区块链节点。
+3、交易签名：当使用DApps时，MetaMask会提示签署交易，确保交易安全且经过授权。
+4、私钥管理：MetaMask生成并加密存储私钥。
+
+二、在alchemy获取一个Sepolia的URL
+https://dashboard.alchemy.com/apps/pyufo040qhtoluul/networks
+
+三、在MetaMask中添加Sepolia测试网络：
+以太坊的一个公共测试网络。可以隔离主网资产，确保真是ETH和资产不会被意外用于测试，避免误操作导致资金损失。
+网络名称：Sepolia 
+RPC URL：https://eth-sepolia.g.alchemy.com/v2/2yl2tmjTsINyYC34saJo0BYbn_ytz9t-（ALCHEMY）
+链 ID：11155111
+货币符号：ETH
+区块浏览器 URL：https://sepolia.etherscan.io
+
+
+
+
+
+
 
 
 
