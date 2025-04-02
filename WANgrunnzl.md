@@ -69,4 +69,37 @@ timezone: UTC+8
 其中协议层和核心模块分为五个部分：共识、合约、账本、网络和安全；基础组件包括：日志组件、存储组件、监控组件、密码学库和基础组件\
 -Optimism Superchain 是由 Optimism 提出的 以太坊 Layer 2 扩展架构，旨在连接多个Optimistic Rollup，提供高吞吐量、低成本的区块链生态。通过利用 Rollup 技术将大量交易打包，减少以太坊主网的负担。并且Superchain 内部的 Rollup 之间可以无缝通信，实现更好的跨链体验。
 
+### 2025.04.02
+学习了智能合约的开发过程\
+·语言：Solidity（一种面向智能合约的高级编程语言）\
+以下是一段简单的智能合约代码示例：\
+// 指定 Solidity 的版本
+pragma solidity ^0.8.0;
+ 
+// 定义一个合约
+contract SimpleStorage {
+    // 声明一个状态变量，用于存储整数值
+    uint256 private storedData;
+ 
+    // 定义一个事件，用于记录状态变量的变化
+    event ValueChanged(uint256 newValue);
+ 
+    // 合约构造函数，在部署合约时执行一次，用于初始化状态变量
+    constructor() {
+        storedData = 0;
+    }
+ 
+    // 设置整数值的函数，只有合约的拥有者可以调用
+    function set(uint256 newValue) public {
+        storedData = newValue;
+        emit ValueChanged(newValue);
+    }
+ 
+    // 获取整数值的函数，可以被任何人调用
+    function get() public view returns (uint256) {
+        return storedData;
+    }
+}
+其中set函数，允许合约的拥有者设置整数值；get 函数，允许任何人查看存储的整数值。\
+·使用这个合约的方法：使用以太坊钱包或 Solidity 开发工具，将这个合约部署到以太坊网络上。
 <!-- Content_END -->
