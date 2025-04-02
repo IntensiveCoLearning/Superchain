@@ -73,39 +73,39 @@ timezone: UTC+8
 学习了智能合约的开发过程\
 -语言：Solidity（一种面向智能合约的高级编程语言）\
 以下是一段简单的智能合约代码示例：\
-// 指定 Solidity 的版本
+// 指定 Solidity 的版本\
 pragma solidity ^0.8.0;
  
-// 定义一个合约
-contract SimpleStorage {
-    // 声明一个状态变量，用于存储整数值
-    uint256 private storedData;
-    // 定义一个事件，用于记录状态变量的变化
-    event ValueChanged(uint256 newValue); 
-    // 合约构造函数，在部署合约时执行一次，用于初始化状态变量
-    constructor() {
-        storedData = 0;
-    }
-    // 设置整数值的函数，只有合约的拥有者可以调用
-    function set(uint256 newValue) public {
-        storedData = newValue;
-        emit ValueChanged(newValue);
-    }
-    // 获取整数值的函数，可以被任何人调用
-    function get() public view returns (uint256) {
-        return storedData;
-    }
+// 定义一个合约\
+contract SimpleStorage {\
+    // 声明一个状态变量，用于存储整数值\
+    uint256 private storedData;\
+    // 定义一个事件，用于记录状态变量的变化\
+    event ValueChanged(uint256 newValue);\ 
+    // 合约构造函数，在部署合约时执行一次，用于初始化状态变量\
+    constructor() {\
+        storedData = 0;\
+    }\
+    // 设置整数值的函数，只有合约的拥有者可以调用\
+    function set(uint256 newValue) public {\
+        storedData = newValue;\
+        emit ValueChanged(newValue);\
+    }\
+    // 获取整数值的函数，可以被任何人调用\
+    function get() public view returns (uint256) {\
+        return storedData;\
+    }\
 }
 其中set函数，允许合约的拥有者设置整数值；get 函数，允许任何人查看存储的整数值。\
 -使用这个合约的方法：部署到本地链、测试网或主网部署->通过 ethers.js 与合约交互->在 Etherscan 上验证代码->部署到以太坊主网（需 Gas 费）
 
 ·区块链的共识机制
 PoW（工作量证明）：矿工通过计算哈希值来竞争记账权，最快解出数学难题的矿工可以打包交易并获得奖励\
-特点：高度去中心化，安全性强但高能耗、交易速度慢
-PoS（权益证明）：持有更多代币的用户更有可能被选为验证者，无需挖矿，直接质押代币即可参与共识。
-特点：能耗低、快，但容易导致富人更富和遭遇攻击
-DPoS（委托权益证明）：代币持有者投票选出一部分“超级节点”来负责记账，超级节点轮流打包交易。
-特点：高效但容易导致少数超级节点掌控网络
-PBFT（拜占庭容错）：所有验证节点需要经过多轮通信达成共识，防止恶意节点作恶。
-特点：速度快能耗低但只适用于小规模网络，难以扩展
+特点：高度去中心化，安全性强但高能耗、交易速度慢\
+PoS（权益证明）：持有更多代币的用户更有可能被选为验证者，无需挖矿，直接质押代币即可参与共识。\
+特点：能耗低、快，但容易导致富人更富和遭遇攻击\
+DPoS（委托权益证明）：代币持有者投票选出一部分“超级节点”来负责记账，超级节点轮流打包交易。\
+特点：高效但容易导致少数超级节点掌控网络\
+PBFT（拜占庭容错）：所有验证节点需要经过多轮通信达成共识，防止恶意节点作恶。\
+特点：速度快能耗低但只适用于小规模网络，难以扩展\
 
