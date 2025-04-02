@@ -36,4 +36,16 @@ timezone: UTC+8
 
 ### 2025.04.02
 
+看了相关[文章](https://gov.optimism.io/t/season-6-standard-rollup-charter/8135)
+
+Optimism 正在推动 Rollup 生态的标准化和去中心化，希望通过 标准化治理、经济激励和技术兼容性，打造一个更加开放和可持续的 Layer 2 生态。这意味着：
+
+- 对于开发者：如果想加入 Rollup 生态，采用 OP Stack 是最稳妥的选择。
+
+- 对于治理参与者：社区决策权在增强，未来公民身份（Citizenship）可能会更重要。
+
+- 对于公共物品项目：RetroPGF 资金池在扩大，符合标准的项目更容易获得支持。
+
+未来 Optimism 生态的治理、经济激励和技术演进方向将决定其能否成为 Rollup 领域的标准。值得关注 Superchain 的发展，尤其是如何平衡 去中心化治理 和 经济可持续性。 🚀
+
 <!-- Content_END -->
