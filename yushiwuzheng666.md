@@ -26,6 +26,12 @@ OP Stack 是一个模块化、开源的区块链架构，允许不同的 Rollup 
 4.允许定制化，但保持核心一致
 虽然所有链都运行在 OP Stack 上，但它们可以根据自己的需求修改配置，例如：选择中心化 Sequencer 还是去中心化排序器。设定不同的治理方式（例如哪些地址可以升级合约）。Blockspace Charter 确保不同链之间仍有一定的标准化，避免过度分裂。
 
-### 2025.07.12
+### 2025.04.01
+学习了 Blockspace Charters 标准，包含 Criteria, Governing Policies, 和 Precommitments，是 Superchain 的一套技术治理框架，用于管理不同 OP Stack L2 的区块空间。它的作用是定义哪些 L2 符合特定的技术和治理标准，并提供相应的规则来指导 L2 的运行、治理和升级。
+简单理解：Blockspace Charters 就是超级链的“区块空间管理规则”，类似于宪法 + 运营手册，确保不同 L2 之间的协调和安全性。
+而如果要纳入超级链管理，这些 L2 必须使用特定版本的 OP Stack，需要满足特定的治理和安全要求必须接受升级管理规则，不过这样的君子协议也有好处，纳入管理后让超级链成为一个标准化的 L2 生态系统，让 L2 之间的治理和升级更加透明，确保 L2 更去中心化、安全性更高。但是貌似最大问题是现有治理机制不够细化，Optimism 目前的 Law of Chains 只是一个高层的指导原则，没有具体细节：它不会规定 L2 具体如何运作，它不会规定哪些 L2 可以升级，升级流程如何执行，治理缺乏技术细节，导致 L2 之间可能规则混乱。
 
+### 2025.04.02
+制作了一个 optimism 每日数据看板，了解目前 optimism 网络运行状况与通用指标，看板：https://flipsidecrypto.xyz/MarshalOrange/optimism-wang-luo-shu-ju-mei-ri-kan-ban-mgTsC3
+对比22年23年刚接触optimism的时候，对于Layer2的概念才刚刚了解，当时 optimism 可谓是eth亲儿子链，现在距离巅峰时刻确实还有些差距，主要原因除了ETH大盘不好，其次是layer2严重吸血eth主网，各自为政，而OP stack开启了互操作性的口子，除此之外可能还需要寻找一个解决ETH流动性问题的方案，能让各个Layer2流动性也共享起来才是关键，而超级链目前初具规模，也是最先有希望实现此问题的。
 <!-- Content_END -->
