@@ -118,10 +118,11 @@ https://defillama.com/chains
 | [Meta11ic0](https://github.com/IntensiveCoLearning/Superchain/blob/main/Meta11ic0.md) | ✅ | ⭕️ |   | | | | | | | | | | |
 | [yyhatb](https://github.com/IntensiveCoLearning/Superchain/blob/main/yyhatb.md) | ✅ | ⭕️ |   | | | | | | | | | | |
 | [xiao1shen](https://github.com/IntensiveCoLearning/Superchain/blob/main/xiao1shen.md) | ✅ | ✅ |   | | | | | | | | | | |
-| [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ |   | | | | | | | | | | |
+| [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ | ✅ | | | | | | | | | | |
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | | | | | | | | | | |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ |   | | | | | | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
