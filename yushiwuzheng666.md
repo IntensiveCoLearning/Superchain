@@ -34,4 +34,11 @@ OP Stack 是一个模块化、开源的区块链架构，允许不同的 Rollup 
 ### 2025.04.02
 制作了一个 optimism 每日数据看板，了解目前 optimism 网络运行状况与通用指标，看板：https://flipsidecrypto.xyz/MarshalOrange/optimism-wang-luo-shu-ju-mei-ri-kan-ban-mgTsC3
 对比22年23年刚接触optimism的时候，对于Layer2的概念才刚刚了解，当时 optimism 可谓是eth亲儿子链，现在距离巅峰时刻确实还有些差距，主要原因除了ETH大盘不好，其次是layer2严重吸血eth主网，各自为政，而OP stack开启了互操作性的口子，除此之外可能还需要寻找一个解决ETH流动性问题的方案，能让各个Layer2流动性也共享起来才是关键，而超级链目前初具规模，也是最先有希望实现此问题的。
+
+### 2025.04.03
+学习如何搭建一个超级链，因为性能问题可能我这边本地真实搭建不了，于是只想了解下流程。
+首先申请加入 Superchain Registry，其次需要符合超级链标准，且支持跨 L2 互操作，集成 Optimism Bridge 或第三方跨链协议。
+后续需要参与 Security Council 治理，超级链中的 L2 需要接受 Security Council 的管理，以确保升级安全。升级前需要投票通过。恶意行为可以导致 L2 被移除超级链（如 Sequencer 作恶）。
+搭建一个链核心点是 OP Stack L2 Rollups 的性能，其吞吐量一般有这几个因素影响：Sequencer 处理速度（交易排序和执行能力）、L1 结算速率（打包 L2 数据到 L1 的时间）、DA 方案。这些可能还是受项目方自身实力的影响。
+
 <!-- Content_END -->
