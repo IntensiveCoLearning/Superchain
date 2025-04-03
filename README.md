@@ -104,7 +104,7 @@ https://defillama.com/chains
 | Name | 3.31 | 4.01 | 4.02 | 4.03 | 4.04 | 4.05 | 4.06 | 4.07 | 4.08 | 4.09 | 4.10 | 4.11 | 4.12 |
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | [wodeche](https://github.com/IntensiveCoLearning/Superchain/blob/main/wodeche.md) | ⭕️ | ⭕️ | ❌ | | | | | | | | | | |
-| [nx-xn2002](https://github.com/IntensiveCoLearning/Superchain/blob/main/nx-xn2002.md) | ✅ | ✅ | ✅ |   | | | | | | | | | |
+| [nx-xn2002](https://github.com/IntensiveCoLearning/Superchain/blob/main/nx-xn2002.md) | ✅ | ✅ | ✅ | ✅ | | | | | | | | | |
 | [wyeeeh](https://github.com/IntensiveCoLearning/Superchain/blob/main/wyeeeh.md) | ✅ | ✅ | ✅ |   | | | | | | | | | |
 | [stephanie797](https://github.com/IntensiveCoLearning/Superchain/blob/main/stephanie797.md) | ✅ | ✅ | ✅ | ✅ | | | | | | | | | |
 | [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ | ✅ | ⭕️ |   | | | | | | | | | |
@@ -122,6 +122,7 @@ https://defillama.com/chains
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | | | | | | | | | |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ |   | | | | | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
