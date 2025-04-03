@@ -83,4 +83,12 @@ Blockspace Charter是Optimism Superchain生态系统中的一个技术治理框�
 共享部分基础设施，如共识机制、桥接协议、Sequencer（交易排序者）。
 扩展性强，可以通过增加新的链来提高整个生态的吞吐量。
 跨链通信，不同链之间可以高效、安全地传输数据和资产。
+
+###2025.4.3
+今天具体学了superchain注册
+Superchain注册表（Superchain Registry）是一个公共索引（Public Index），其核心作用是管理和记录符合Blockspace Charter标准的区块链。
+Superchain注册表提供了一种标准化的方式 来管理和维护生态系统内的所有链，确保它们符合统一的技术和治理框架。
+升级提案流程确保Superchain的持续发展，让技术演进和治理变革更加透明和可控。
+Blockspace Charter作为整个治理框架的基石，确保每一次技术升级和决策都符合Superchain的长期发展方向，避免短期利益驱动的决策破坏生态稳定性。
+这种机制的最终目标是提升Superchain的安全性、互操作性和可持续发展能力，让整个生态更加稳健、可靠。
 <!-- Content_END -->
