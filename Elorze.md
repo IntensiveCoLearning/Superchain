@@ -87,6 +87,13 @@ https://www.alchemy.com/faucets/ethereum-sepolia
 
 
 
+### 2025.04.03
+了解了一下Avalanche技术和它现在的应用场景。
+
+
+
+
+
 
 
 
