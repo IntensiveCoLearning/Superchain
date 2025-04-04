@@ -85,12 +85,58 @@ RPC URL：https://eth-sepolia.g.alchemy.com/v2/2yl2tmjTsINyYC34saJo0BYbn_ytz9t-�
 四、使用Sepolia测试网水龙头（Faucet）获取SepoliaETH，我选择的是alchemy
 https://www.alchemy.com/faucets/ethereum-sepolia
 
+五、安装Git
+
 
 
 ### 2025.04.03
 了解了一下Avalanche技术和它现在的应用场景。
 
 
+
+### 2025.04.04
+继续尝试搭建测试链。
+六、安装go
+通过官网下载windows安装包
+
+七、安装just
+先安装scoop:
+我把scoop安装在了D盘，所以先在终端中设置了环境变量：
+PS C:\Users\U> $env:SCOOP='D:\Scoop'                                                                                    PS C:\Users\U> [environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')  
+用国内镜像安装scoop:
+ iwr -useb https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1 | iex
+ --------
+ 用scoop安装just:终端：
+ scoop install just
+
+--------------------------------
+
+1、在D盘新建文件夹，专门用来跑Optimism链。
+
+2、在终端跑： F:\programming\OptimismTest> git clone https://github.com/ethereum-optimism/optimism.git：
+下载代码，这里我下载得很慢且老是失败，找到的加速方法：
+根据科学上网工具端口（我是clash）配置git代理：
+查看端口，我的：HTTP/HTTPS 代理端口：7899
+终端：
+# 设置全局 HTTP/HTTPS 代理
+git config --global http.proxy http://127.0.0.1:7899
+git config --global https.proxy https://127.0.0.1:7899
+----
+验证代理是否生效
+git config --global --get http.proxy  # 查看 HTTP 代理
+git config --global --get https.proxy # 查看 HTTPS 代理
+正常会返回 http://127.0.0.1:7899 等配置信息。
+-----
+git clone https://github.com/ethereum-optimism/optimism.git
+-----
+取消代理（如需恢复）
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+----
+
+3、GIT BASH：cd optimism
+
+问题：npm install这步没成功，明天再看看。
 
 
 
