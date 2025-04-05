@@ -113,7 +113,7 @@ https://defillama.com/chains
 | [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ | ✅ | ✅ | ✅ | ⭕️ |   | | | | | | | |
 | [tuwu233](https://github.com/IntensiveCoLearning/Superchain/blob/main/tuwu233.md) | ⭕️ | ⭕️ | ❌ | | | | | | | | | | |
 | [Elorze](https://github.com/IntensiveCoLearning/Superchain/blob/main/Elorze.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | | | | | | |
-| [SpikeSpiegel0929](https://github.com/IntensiveCoLearning/Superchain/blob/main/SpikeSpiegel0929.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ |   | | | | | | | |
+| [SpikeSpiegel0929](https://github.com/IntensiveCoLearning/Superchain/blob/main/SpikeSpiegel0929.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | | | | | | | |
 | [CloverSurrey](https://github.com/IntensiveCoLearning/Superchain/blob/main/CloverSurrey.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | | | | | | | |
 | [Meta11ic0](https://github.com/IntensiveCoLearning/Superchain/blob/main/Meta11ic0.md) | ✅ | ⭕️ | ✅ | ✅ | ✅ |   | | | | | | | |
 | [yyhatb](https://github.com/IntensiveCoLearning/Superchain/blob/main/yyhatb.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | | | | | | |
@@ -122,6 +122,7 @@ https://defillama.com/chains
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | | | | | | |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ |   | | | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
