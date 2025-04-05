@@ -147,11 +147,9 @@ git config --global --unset https.proxy
 ```bash
 # Clone the repository
 $git clone https://github.com/ethereum-optimism/op-deployer.git
-
 # Change directory
 $cd op-deployer
 ```
-
 2.
 /del>
 
