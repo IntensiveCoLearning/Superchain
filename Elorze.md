@@ -153,10 +153,9 @@ $cd op-deployer
 直接运行失败了。
 </del>
 
-<del>
-2.报错：GitHub 取消了密码方式的 HTTPS 认证支持
-解决方法：使用 SSH 克隆
-</del>
+
+~~2.报错：GitHub 取消了密码方式的 HTTPS 认证支持
+解决方法：使用 SSH 克隆~~
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
