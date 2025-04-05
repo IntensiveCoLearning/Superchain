@@ -145,10 +145,10 @@ git config --global --unset https.proxy
 **在终端中运行：**
 ```bash
 # Clone the repository
-git clone https://github.com/ethereum-optimism/op-deployer.git
+$git clone https://github.com/ethereum-optimism/op-deployer.git
 
 # Change directory
-cd op-deployer
+$cd op-deployer
 ```
 
 
