@@ -172,6 +172,103 @@ git clone git@github.com:ethereum-optimism/optimism.git
 做到这一步发现op-deployer是包含在optimism里面的，也就是说两天前我已经下载过一次了……但既然写都写了……于是就把上面的步骤都划线划掉了……-_-||
 
 
+1.进入到op-deployer
+```bash
+cd op-deployer
+```
+
+2.安装依赖
+```bash
+go env -w GOPROXY=https://goproxy.cn,direct # 将 Go 模块（Go Modules）的下载代理设置为国内镜像源（七牛云 goproxy.cn），以加速依赖下载并避免因网络问题导致的失败
+go mod tidy
+```
+
+3.进入具体程序目录
+```bash
+cd cmd/op-deployer
+```
+
+4.编译程序
+```bash
+go build
+```
+成功后，可以在目录中看到一个名为op-deployer.exe的可执行文件
+
+5.查看帮助：
+```bash
+./op-deployer --help
+```
+输出：
+```bash
+NAME:
+   op-deployer - Tool to configure and deploy OP Chains.
+
+USAGE:
+   op-deployer [global options] command [command options]
+
+VERSION:
+   v0.0.0-dev
+
+COMMANDS:
+   init       initializes a chain intent and state file
+   apply      applies a chain intent to the chain
+   upgrade    upgrades contracts by sending tx to OPCM.upgrade function
+   bootstrap  bootstraps global contract instances
+   inspect    inspects the state of a deployment
+   clean      cleans up various things
+   verify     verifies deployed contracts on Etherscan
+   help, h    Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --cache-dir value   Cache directory. If set, the deployer will attempt to cache downloaded artifacts in the specified directory. (default: "C:\\Users\\U/.op-deployer/cache") [%DEPLOYER_CACHE_DIR%]
+   --log.level value   The lowest log level that will be output (default: INFO) [%DEPLOYER_LOG_LEVEL%]
+   --log.format value  Format the log output. Supported formats: 'text', 'terminal', 'logfmt', 'json', 'json-pretty', (default: text) [%DEPLOYER_LOG_FORMAT%]
+   --log.color         Color the log output if in terminal mode (default: false) [%DEPLOYER_LOG_COLOR%]
+   --log.pid           Show pid in the log (default: false) [%DEPLOYER_LOG_PID%]
+   --help, -h          show help
+   --version, -v       print the version
+```
+------------------------------------------
+
+实验：
+一、准备L1网络：
+op-deployer 需要连接到一个 L1 网络（例如 Ethereum 测试网或本地模拟网络）。
+为了学习，我们可以使用一个本地 Ethereum 节点（我选择了Hardhat）：
+
+1.安装Hardhat:
+```bash
+npm install -g hardhat
+```
+
+2.将npm切换为国内镜像
+```bash
+npm config set registry https://registry.npmmirror.com
+```
+
+3.在 op-deployer 目录中集成 Hardhat：
+按提示安装依赖
+```bash
+ npm install hardhat @nomicfoundation/hardhat-toolbox
+```
+
+4.初始化 Hardhat 项目
+```bash
+npx hardhat init
+```
+选择 Create a JavaScript project
+
+5.启动本地网络
+```bash
+npx hardhat node
+```
+这会启动一个本地开发链，默认地址为 http://127.0.0.1:8545，并输出 20 个测试账户和私钥。
+Hardhat 默认配置使用 127.0.0.1（本地地址）作为主机，8545 作为以太坊节点的常用端口。这是为了在本地开发环境中提供一个快速且私有的区块链节点。
+
+
+
+
+
+
 
 
 
