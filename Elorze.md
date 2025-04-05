@@ -105,7 +105,7 @@ https://www.alchemy.com/faucets/ethereum-sepolia
 PS C:\Users\U> $env:SCOOP='D:\Scoop'                                                                                    PS C:\Users\U> [environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')  
 用国内镜像安装scoop:
  iwr -useb https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1 | iex
- --------
+
  用scoop安装just:终端：
  scoop install just
 
@@ -121,24 +121,25 @@ PS C:\Users\U> $env:SCOOP='D:\Scoop'                                            
 # 设置全局 HTTP/HTTPS 代理
 git config --global http.proxy http://127.0.0.1:7899
 git config --global https.proxy https://127.0.0.1:7899
-----
+
 验证代理是否生效
 git config --global --get http.proxy  # 查看 HTTP 代理
 git config --global --get https.proxy # 查看 HTTPS 代理
 正常会返回 http://127.0.0.1:7899 等配置信息。
------
+
 git clone https://github.com/ethereum-optimism/optimism.git
------
+
 取消代理（如需恢复）
 git config --global --unset http.proxy
 git config --global --unset https.proxy
-----
+
 
 3、GIT BASH：cd optimism
 
 问题：npm install这步没成功，明天再看看。
 
 
+### 2025.04.05
 
 
 
