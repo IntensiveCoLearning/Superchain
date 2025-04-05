@@ -141,6 +141,7 @@ git config --global --unset https.proxy
 
 ### 2025.04.05
 继续配置环境：
+~~~
 1.克隆op-deployer仓库
 **在终端中运行：**
 ```bash
@@ -152,7 +153,7 @@ $cd op-deployer
 ```
 
 2.
-
+~~~
 
 
 
