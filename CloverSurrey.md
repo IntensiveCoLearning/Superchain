@@ -273,4 +273,34 @@ L0-pokadot
 L2是第三方集成，在第一层区块链的上端工作
 通过处理主要区块链L1之外的交易来帮助扩展提案，同时保持同样的稳定和去中心化
 ### 2025.04.05
+今天尝试注册超级链！
+https://github.com/ethereum-optimism/superchain-registry/blob/main/docs/ops.md
+跟着这个链接一步一步做的时候，在第三步频繁遇到问题。首先是go的版本问题（我根据这个md文档下载了go 1.21.0，但在生成配置文件的时候命令行提示正在下载go1.23.0……所以我重新下载了go的最新版本，这个问题就解决了）其次是连接问题。
+connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+error: Recipe `_run_ops_bin` failed on line 38 with exit code 1
+error: Recipe `create-config` failed on line 53 with exit code 1
+根据gpt的建议，我使用了国内代理
+使用国内代理:
+如果您在中国大陆，访问外网可能会受到影响。您可以使用一些国内的 Go 代理，例如：
+bash
+go env -w GOPROXY=https://goproxy.cn  
+然后再尝试运行命令。此时大量依赖下载成功，但又出现了runtime/cgo 错误:
+错误信息中的 cc1.exe: sorry, unimplemented: 64-bit mode not compiled in 表明 Go 编译器在尝试进行 cgo 数据处理时出错。cgo 是用于调用 C 语言代码的 Go 特性。当前的 Go 安装似乎没有正确配置或缺少必要的编译器。
+检查了一下，原来下载的MinGW是32位的版本，因此需要重新下载
+-----------打住！原本以为是要按照主页的部分跟着一步步做，还好朋友提醒不用继续下去……及时止损。但是因为也斗争了很长时间所以保存一下】、、、
+基础学习部分：
+比特币账户存在的问题：和日常体验不一样，使用不方便。比如转账时需要证明交易来源的合法性，如果来源多，那么证明就非常繁琐
+
+以太坊采用的是基于账户的模型，即系统要显示每个账户上有的货币数目。
+检查一笔转账的合法性，只要检查转出账户中是否有足够的数目就可以了。对double spending attack有天然的防御作用
+缺点是有reply attack（和double spending是对称的
+对策是加入nonce（交易次数）使之成为签名的一部分
+
+两类账户-外部账户（拥有私钥的人拥有这个账户的控制权）/合约账户-合约账户不能主动发起交易
+合约账户包括code/storage/变量的取值
+
+合约-要求参与者有稳定的身份
+用智能合约实现一些金融衍生品（比如期货）的
+
+### 2025.04.06
 <!-- Content_END -->
