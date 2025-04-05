@@ -150,8 +150,28 @@ $git clone https://github.com/ethereum-optimism/op-deployer.git
 # Change directory
 $cd op-deployer
 ```
-2.尝试
+直接运行失败了。
 </del>
+
+<del>
+2.报错：GitHub 取消了密码方式的 HTTPS 认证支持
+解决方法：使用 SSH 克隆
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+一路回车即可（直接安装在C盘，建议不要换盘，因为GIT会去C盘找；可以不设密码），生成 .ssh/id_ed25519 和 .ssh/id_ed25519.pub
+打开公钥文件 .ssh/id_ed25519.pub，复制里面内容。
+登录 GitHub，打开：
+👉 https://github.com/settings/keys
+点击 “New SSH key”，粘贴进去保存。
+然后使用 SSH 地址来克隆：
+```bash
+git clone git@github.com:ethereum-optimism/optimism.git
+```
+</del>
+
+~~做到这一步发现op-deployer是包含在optimism里面的，也就是说两天前我已经下载过一次了……于是把上面的步骤都划线划掉了……-_-||~~
+
 
 
 
