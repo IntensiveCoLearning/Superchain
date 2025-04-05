@@ -150,4 +150,24 @@ timezone: UTC+8
       [^1]: Chains are governed by Optimism if their `L1ProxyAdminOwner` is set to the value specified by the standard config and [configurability.md](https://github.com/ethereum-optimism/specs/blob/main/specs/protocol/configurability.md#l1-proxyadmin-owner).
       [^2]: Chains receive Superchain hardforks if they've specified a `superchain_time`. This means that they have opted-into Superchain-wide upgrades.
 
+#### 2025.04.04
+阅读**文章：[Superchain upgrades 超级链升级](https://docs.optimism.io/superchain/superchain-upgrades)**
+**Superchain Upgrade的架构设计**
+Superchain 通过协调一致的硬分叉机制实现多链同步升级，这种设计确保了整个生态系统的一致性和安全性
+- 类似于传统数据库的主从架构，主库（L1）的变更会同步到所有从库（L2）
+- 通过统一的升级机制降低了多链管理的复杂性，也可以避免不同链之间的版本差异导致的兼容性问题
+**升级机制**
+`ProtocolVersion`  L1合约作为中心化的版本管理系统，统筹整个 Superchain 的协议版本演进
+- 合约充当类似于 Git 仓库的角色，记录和管理所有链的版本信息。
+- 通过链上信号机制实现版本同步，确保所有节点的一致性，避免不同链之间的不一致
+- 版本不兼容时自动触发节点暂停，防止链分叉
+   - 区块高度触发：确保网络达到特定状态才进行升级
+   - 时间戳触发：提供时间维度的协调，便于各方提前准备
+   - 自动继承机制降低了链维护的操作复杂度
+- 激活规则设计采用双重保障机制，确保升级的平稳过渡
+
+**安全保障措施**
+- `rollup.halt` 标志系统在执行层和共识层实现双重保护，确保升级过程的安全性，通过强制停止机制允许节点在遇到不兼容的协议版本时停止（这种设计类似于传统分布式系统中的熔断机制，保护系统稳定性）
+  - 执行层 (op-geth) 的版本控制类似于软件的语义化版本管理
+  - 共识层 (op-node) 的保护机制确保节点网络的一致性
 <!-- Content_END -->
