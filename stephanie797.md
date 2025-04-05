@@ -900,7 +900,148 @@ Shell返回结果到终端：Shell 将操作系统返回的文件列表转发给
 Shell 是命令解析器，负责解释命令含义并请求操作系统执行。
 
 操作系统 是实际执行命令并完成任务的核心部分。
-### 2025.04.03
+### 2025.04.05
+注册超级链
+0. 标准链：使用 op-deployer 部署你的链
+如果你部署的是标准链，它必须使用 op-deployer 部署，才能被视为标准链并添加到 Superchain 注册表中。更多信息可以查看文档。
+
+提示
+我们建议大多数链使用 op-deployer。op-deployer 可以配置支持 L3、alt-DA 和自定义 Gas 代币链。如果不使用 op-deployer，你需要手动创建配置文件。详细信息请参见“添加自定义链”部分。
+
+1. 安装依赖
+安装以下依赖项：
+
+依赖项	版本	检查命令
+git	^2	git --version
+go	^1.21	go version
+just	^1.28.0	just --version
+2. Fork（分叉）此仓库
+你需要从自己的 fork 中向主仓库提交 Pull Request。
+
+建议每次只添加一个链，并且每个链使用该仓库的新分支。
+
+3. 从状态文件生成配置
+在此目录的根目录下运行以下命令：
+
+lua
+复制
+编辑
+just create-config <shortname> <path to your state file>
+其中 shortname 是你的链名称（例如 op），path to your state file 是指向 state.json 文件的路径，该文件是通过 op-deployer 生成的。
+
+这将把两个文件放在 .staging 目录中 - <shortname>.toml 和 <shortname>.json.zst。
+
+4. 更新生成的配置文件
+更新 <shortname>.toml 文件，填写你的链信息。大部分数据会从部署工具的状态文件自动填充，但你需要手动填写以下内容：
+
+name：链的可读名称。
+
+superchain：你的链属于哪个超级链。可以是 sepolia 或 mainnet。
+
+public_rpc：你链的公共 RPC 端点。
+
+sequencer_rpc：你链的排序器 RPC 端点。
+
+explorer：你链的区块浏览器。
+
+deployment_tx_hash：部署链时生成的交易哈希。你需要在 Etherscan 上查找这个哈希。
+
+不要忘记检查配置文件，确保没有错误。
+
+5. 提交更改
+将更改提交到你的 fork 中，然后打开 Pull Request。提交时，请遵循以下建议：
+
+从非受保护的分支（例如，避免使用 main 分支）打开 PR，这样可以方便维护者向你的分支推送更改。
+
+每次 PR 只提交一个链。这样，如果某个链出现问题，其他链不受影响。
+
+开启 PR 时，请勾选允许维护者编辑的选项。
+
+自动化检查会在 PR 中运行，验证你的链，并生成报告，描述链与标准区块链的合规性。
+
+6. 等待审查
+我们的团队成员将审查你的 PR。当准备好时，我们会从你的 PR 中生成代码并推送到你的 fork 中。
+
+重要提示
+不要自己运行代码生成操作。这样会延缓审查过程。
+
+添加自定义链
+我们强烈建议你使用 op-deployer 部署链。op-deployer 可以配置创建 L3、alt-DA 和自定义 Gas 代币链（请参阅 op-deployer 文档）。但是，如果你的链需要更多的修改，你可能需要使用自定义部署方法，并手动创建文件将你的链添加到 Superchain 注册表中。
+
+安装依赖并分叉仓库后，你将需要手动生成配置文件。
+
+1. 创建配置文件
+你的配置文件是一个 toml 文件，类似下面这样。你可以复制这个配置文件并将其放入 fork 中的 .staging 目录。你需要将文件中的值替换为你链的正确信息。
+
+toml
+复制
+编辑
+name = "testchain"
+public_rpc = ""
+sequencer_rpc = ""
+explorer = ""
+superchain_level = 0
+governed_by_optimism = false
+data_availability_type = "eth-da"
+chain_id = 900
+batch_inbox_addr = "0x0031e396976D1D09fBa39348dC2Bacc5EebA6be6"
+block_time = 2
+seq_window_size = 3600
+max_sequencer_drift = 600
+superchain = "sepolia"
+base_fee_vault_recipient = "0x0000000000000000000000000000000000000001"
+l1_fee_vault_recipient = "0x0000000000000000000000000000000000000001"
+sequencer_fee_vault_recipient = "0x0000000000000000000000000000000000000001"
+deployment_tx_hash = "0x51f046f80445052387403e04cb845f864f653fed413893b0d283772823b2176d"
+deployment_l1_contracts_version = "tag://op-contracts/v1.8.0-rc.4"
+deployment_l2_contracts_version = "tag://op-contracts/v1.7.0-beta.1+l2-contracts"
+2. 手动更新配置
+确保配置文件中的每个字段都已根据你的链进行了更新。
+
+链元数据
+配置文件的第一部分包含了链的元数据，必须填写以下字段：
+
+name：链的可读名称。
+
+superchain：你的链属于哪个超级链。可以是 sepolia 或 mainnet。
+
+public_rpc：你的链的公共 RPC 端点。
+
+sequencer_rpc：你的链的排序器 RPC 端点。
+
+explorer：你的链的区块浏览器。
+
+superchain_level：对于自定义链，这必须是 0。
+
+governed_by_optimism：对于自定义链，这必须是 false。
+
+data_availability_type：你的链使用的数据可用性层。可以是 eth-da 或 alt-da。
+
+chain_id：你的链 ID，必须与 ethereum-lists/chains 中的 ID 匹配。
+
+deployment_tx_hash：部署链时生成的交易哈希。
+
+deployment_l1_contracts_version：必须与部署 L1 合约时使用的 OP 合约版本标签匹配。
+
+deployment_l2_contracts_version：必须与部署 L2 合约时使用的 OP 合约版本标签匹配。
+
+硬分叉
+[hardforks] 部分包含硬分叉激活时间的覆盖设置。如果你的链选择了超级链范围的硬分叉，可以将这些值设置为 0。
+
+Genesis（创世）
+[genesis] 部分包含了 L1 卷起的启动块哈希和 L2 的创世哈希。L2 的创世哈希从其创世文件中生成。注意，这与步骤 4 中的 ZST 编码无关。
+
+角色和地址
+[roles] 和 [addresses] 部分必须根据部署链时的角色和地址手动更新。
+
+4. ZST 编码创世文件
+Superchain 注册表要求使用 ZST 编码的创世文件。要进行 ZST 编码，可以运行命令：
+
+pgsql
+复制
+编辑
+zstd -D superchain-registry/superchain/extra/dictionary <your-genesis.json>
+将生成的文件放入 .staging 目录中，并与配置文件一起提交。
 ### 2025.04.03
 ### 2025.04.03
 ### 2025.04.03
