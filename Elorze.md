@@ -151,7 +151,7 @@ $git clone https://github.com/ethereum-optimism/op-deployer.git
 $cd op-deployer
 ```
 
-2.
+2.尝试
 </del>
 
 
