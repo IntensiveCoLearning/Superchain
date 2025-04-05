@@ -49,7 +49,7 @@ timezone: UTC+8
 
 - (4.1 备注：未完待续)
 
-#### 2025.04.02
+### 2025.04.02
 - 继续阅读**文章：[Superchain Explainer](https://docs.optimism.io/superchain/superchain-explainer)**
 
 - 为什么要引入Superchain？
@@ -69,7 +69,7 @@ timezone: UTC+8
    - 无提交间隔的按需提案——仅当用户需要撤回时才提出撤回声明。这消除了部署新 OP 链时产生的开销。
    - 在设想的故障证明系统中，任何人都可以提交提款索赔，并且这些提款索赔可以随时提交。当索赔附带债券时，提交提款索赔可能无需许可，因为如果索赔被证明无效，这些债券将充当抵押品。如果挑战者成功挑战该声明，则会向挑战者支付保证金，以奖励他们参与保护系统的安全，从而即使在这个无需许可的系统中也可以防止spam
 
-#### 2025.04.03
+### 2025.04.03
 1. 阅读**文章：[The Superchain Registry 超级链注册表](https://docs.optimism.io/superchain/superchain-registry)**
    - 定义：The Superchain Registry serves as the source of truth for who's in the Superchain Ecosystem and what modifications they've made. 
    - 解释：Superchain Registry就是一个**共享的事实来源**索引，用于存储和管理链的注册信息，以及链对应的配置。
@@ -150,24 +150,40 @@ timezone: UTC+8
       [^1]: Chains are governed by Optimism if their `L1ProxyAdminOwner` is set to the value specified by the standard config and [configurability.md](https://github.com/ethereum-optimism/specs/blob/main/specs/protocol/configurability.md#l1-proxyadmin-owner).
       [^2]: Chains receive Superchain hardforks if they've specified a `superchain_time`. This means that they have opted-into Superchain-wide upgrades.
 
-#### 2025.04.04
+### 2025.04.04
 阅读**文章：[Superchain upgrades 超级链升级](https://docs.optimism.io/superchain/superchain-upgrades)**
 **Superchain Upgrade的架构设计**
 Superchain 通过协调一致的硬分叉机制实现多链同步升级，这种设计确保了整个生态系统的一致性和安全性
 - 类似于传统数据库的主从架构，主库（L1）的变更会同步到所有从库（L2）
 - 通过统一的升级机制降低了多链管理的复杂性，也可以避免不同链之间的版本差异导致的兼容性问题
-**升级机制**
-`ProtocolVersion`  L1合约作为中心化的版本管理系统，统筹整个 Superchain 的协议版本演进
-- 合约充当类似于 Git 仓库的角色，记录和管理所有链的版本信息。
-- 通过链上信号机制实现版本同步，确保所有节点的一致性，避免不同链之间的不一致
-- 版本不兼容时自动触发节点暂停，防止链分叉
-   - 区块高度触发：确保网络达到特定状态才进行升级
-   - 时间戳触发：提供时间维度的协调，便于各方提前准备
-   - 自动继承机制降低了链维护的操作复杂度
-- 激活规则设计采用双重保障机制，确保升级的平稳过渡
 
+**升级机制**
+1. `Superchain Target`超级链目标
+   - L1 智能合约的变更必须与最新激活的 L2 功能兼容，并通过 L1 合约升级来执行。
+   - A Superchain Target定义了一组在 OP-Stack 链之间共享的激活规则和 L1 合约升级，以便集体升级链。
+
+2. `ProtocolVersion`  L1合约作为中心化的版本管理系统，统筹整个 Superchain 的协议版本演进
+   - 合约充当类似于 Git 仓库的角色，记录和管理所有链的版本信息。
+   - 通过链上信号机制实现版本同步，确保所有节点的一致性，避免不同链之间的不一致
+   - 版本不兼容时自动触发节点暂停，防止链分叉
+      - 区块高度触发：确保网络达到特定状态才进行升级
+      - 时间戳触发：提供时间维度的协调，便于各方提前准备
+      - 自动继承机制降低了链维护的操作复杂度
+   - 激活规则设计采用双重保障机制，确保升级的平稳过渡。通过激活规则，L2 状态转换函数的改变在所有节点上确定性地转换。
 **安全保障措施**
 - `rollup.halt` 标志系统在执行层和共识层实现双重保护，确保升级过程的安全性，通过强制停止机制允许节点在遇到不兼容的协议版本时停止（这种设计类似于传统分布式系统中的熔断机制，保护系统稳定性）
   - 执行层 (op-geth) 的版本控制类似于软件的语义化版本管理
   - 共识层 (op-node) 的保护机制确保节点网络的一致性
+
+### 2025.04.05
+阅读**文章：[The Blockspace and Standard Rollup charters](https://docs.optimism.io/superchain/blockspace-charter)**
+Blockspace Charters (区块空间宪章)为超级链生态系统提供了必要的技术和治理框架。Standard Rollup Charter(标准 Rollup宪章) 是几个具有不同定制和安全保障的区块空间宪章中的第一个。
+- 区块空间宪章： 一种框架，为 Optimism 生态系统中的区块空间建立标准、管理政策和预先承诺，确保安全性、正常运行时间并符合链的法则。
+- 标准 Rollup 宪章：第一个区块空间章程，定义了最高安全性区块空间的技术和治理要求。通过遵守标准 Rollup 章程，链可以达到“标准”状态，确保一致性、高安全性和操作可靠性。
+- 超级链注册表是链的索引，可作为超级链生态系统中成员和链配置的真实来源。注册表检查是否符合标准汇总章程。superchain_level superchain_level = 2 的链满足被归类为标准汇总的所有标准。
+
+### 2025.04.06
+继续阅读**文章：[The Blockspace and Standard Rollup charters](https://docs.optimism.io/superchain/blockspace-charter)**
+Blockspace Charters
+
 <!-- Content_END -->
