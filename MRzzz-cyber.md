@@ -106,4 +106,272 @@ timezone: UTC+8
 
 
 ### 2025.04.03
+今天系统学习了 Velodrome, 这个 Optimism 上最大的 Dex，是如何运作的
+Velodrome Finance 是一个建立在 Optimism 上的原生 DEX，主要是通过 VE 模型来提供高额的质押 Apy，从而吸引很多人进行质押，从而产生流动性和 TVL
+这里其实我产生了一个疑问，VE模型以前就出现了很多，为什么 Velodrome 还能成功
+
+在传统的 veToken 模型（如 Curve） 中，流动性提供者（LP）和治理参与者（veToken 持有者）的利益确实存在潜在的冲突，主要体现在以下几个方面：
+
+1. 激励目标的分歧
+流动性提供者（LP）的目标：
+
+追求短期收益最大化，如交易手续费、流动性挖矿奖励（CRV 代币）。
+
+倾向于选择高收益的池子，即使这些池子对协议长期发展未必有利（例如低效或低需求的池子）。
+
+veToken 持有者的目标：
+
+通过锁定 CRV 获得 veCRV，长期持有以获取协议治理权和额外收益（如交易费分成）。
+
+希望引导流动性到 对协议长期价值有利的池子（例如稳定币核心池，提高协议整体交易量和收入）。
+
+冲突点：
+LP 可能更关注短期高收益的“挖提卖”行为，而 veCRV 持有者希望优化协议长期健康，两者的利益并不完全一致。
+
+2. 代币释放与抛压问题
+LP 的抛压：
+
+Curve 的 LP 通过提供流动性获得 CRV 奖励，但这些 CRV 通常被立即卖出（短期行为），导致代币价格承压。
+
+即使 LP 锁定 CRV 成为 veCRV 持有者，比例通常较低（因为锁定意味着流动性丧失）。
+
+veCRV 持有者的抑制抛压：
+
+veCRV 需要长期锁定 CRV（最长 4 年），减少了市场流通量，但这也限制了 LP 参与治理的动力（因为 LP 更倾向于灵活性）。
+
+冲突点：
+协议需要 CRV 释放来激励流动性，但过多的释放会导致抛压，损害 veCRV 持有者的利益（他们希望代币稀缺且增值）。
+
+3. 投票权与流动性引导
+Curve 的“投票权重”机制：
+
+veCRV 持有者通过投票决定哪些池子能获得更高的 CRV 释放奖励（即“流动性引导”）。
+
+理论上，veCRV 持有者应投票给对协议最有价值的池子（如高交易量、低滑点的池子）。
+
+现实中的博弈：
+
+许多 veCRV 持有者是 其他协议（如 Frax、Convex），他们可能为了自身利益（而非 Curve 协议的利益）投票。
+
+例如，Frax 会引导 CRV 奖励到自己的 FRAX 稳定币池，即使该池对 Curve 整体贡献有限。
+
+冲突点：
+veCRV 持有者的投票可能偏离协议最优解，导致流动性分配低效，而 LP 仍会追逐高 CRV 释放的池子（无论是否合理）。
+
+4. 收益分配的不平衡
+交易手续费分配：
+
+Curve 的 LP 获得 50% 的交易手续费，另外 50% 分配给 veCRV 持有者。
+
+如果 veCRV 持有者主导投票降低某些池子的 CRV 奖励，LP 可能因收益下降而撤出流动性。
+
+冲突点：
+veCRV 持有者希望最大化协议收入（通过优化池子），但 LP 需要即时回报，两者对收益分配的优先级不同。
+
+Velodrome 如何解决这些冲突？
+Velodrome 在 ve 模型基础上进行了优化，减少 LP 和 veToken 持有者的对立：
+
+贿赂机制（Bribes）：
+
+项目方直接贿赂 veVELO 持有者，激励他们投票支持自己的池子，而 LP 无需依赖 CRV 释放，转向更直接的收益（贿赂+交易费）。
+
+协议收入 100% 给 veVELO：
+
+所有交易费和贿赂收益归 veVELO 持有者，绑定长期利益，避免短期 LP 的抛压问题。
+
+L2 低门槛：
+
+在 Optimism 上，LP 和投票者交互成本低，更多人愿意参与治理（而非仅巨鲸或协议）。
+
+
+
+为什么能成为 Optimism 最大 DEX？
+激励效率高：通过 ve 模型和贿赂机制，将 Optimism 的 OP 激励精准分配给深度流动性池。
+
+生态协同：成为 Optimism 官方合作的流动性平台，吸引大量项目方入驻（如 Synthetix、Thales）。
+
+用户粘性：长期锁定的 veVELO 持有者既是治理者也是协议收益的分享者，形成强社区共识。
+
+潜在风险
+过度依赖贿赂：若外部激励（如 OP 代币）减少，可能影响流动性。
+
+跨链竞争：其他 L2（如 Arbitrum）的类似协议（如 Solidly 分叉）可能分流用户
+
+
+### 2025.04.04
+Velodrome 和 Aelodrome 有什么不同
+Velodrome 和 Aerodrome 都是基于 Solidly ve(3,3) 模型 的 DEX，并且都部署在 Optimism 上，但它们由不同的团队运营，并且在代币经济、治理和发展方向上存在一些关键区别。以下是它们的详细对比：
+
+1. 背景与团队
+
+![image](https://github.com/user-attachments/assets/56badfa8-8ce2-4abb-9a90-5736f89fc0c2)
+
+
+2. 代币经济学（veToken 模型）
+![image](https://github.com/user-attachments/assets/45f9d1ab-1e83-4d63-b73b-033b8616a578)
+
+3. 流动性与激励
+![image](https://github.com/user-attachments/assets/1e368101-139f-4ee0-82d5-635f149a960c)
+4. 治理与发展方向
+![image](https://github.com/user-attachments/assets/85015b80-373a-42ba-bb87-65d5d56d4966)
+5. 哪个更有优势？
+![image](https://github.com/user-attachments/assets/9fc62efd-409f-4e27-a46b-74cfb64d4bf2)
+
+总结
+Velodrome 和 Aerodrome 的核心机制几乎相同，但 Aerodrome 凭借 Base 链的官方背景和 Coinbase 的资源，正在迅速抢占市场份额。未来，Aerodrome 可能成为 ve(3,3) 模型的主导者，而 Velodrome 需要依靠 Optimism 生态的持续支持来保持竞争力。
+
+### 2025.04.05
+Velodrome 的一些标志事件
+Velodrome 作为 Optimism 生态的核心 DEX，自 2022 年上线以来获得了多项重要的生态资助和合作支持，同时也经历了多个标志性事件。以下是其关键历史节点和生态资助情况：
+
+1. Optimism 官方资助（OP 代币激励）
+2022 年 6 月：Velodrome 上线 Optimism，并成为首批获得 OP 代币激励 的协议之一。
+
+通过 Optimism 的流动性挖矿计划，Velodrome 分发了大量 OP 代币奖励给流动性提供者（LP），迅速吸引 TVL 增长。
+
+标志事件：2022 年 8 月，Velodrome 的 TVL 突破 2 亿美元，成为 Optimism 上最大的 DEX。
+
+2023 年：持续获得 OP 激励，并在多轮 Optimism Governance Fund（治理基金） 中获批资金，用于协议开发和生态扩展。
+
+2. 与 Synthetix 的战略合作
+2022 年 7 月：Velodrome 与 Synthetix（Optimism 生态头部衍生品协议）达成深度合作。
+
+Synthetix 将其流动性池（如 sUSD、SNX）迁移至 Velodrome，并为其提供额外激励。
+
+标志事件：Synthetix 创始人 Kain Warwick 公开支持 Velodrome，称其为“Optimism 流动性中枢”。
+
+3. Curve Wars 的延伸：Velodrome 成为 Optimism 的“贿赂中心”
+2022-2023 年：Velodrome 继承了 Curve Wars 的玩法，成为 Optimism 生态的“贿赂市场”。
+
+项目方（如 Thales、Beethoven X）通过 贿赂 veVELO 持有者 来引导流动性，推动自身代币池的激励权重。
+
+标志事件：2023 年 Q1，Velodrome 单月贿赂金额突破 100 万美元，显示其治理代币的强需求。
+
+4. 与 Optimism 生态项目的深度整合
+2023 年：Velodrome 与多个 Optimism 原生协议合作，包括：
+
+Thales（期权协议）：通过 veVELO 投票激励其流动性池。
+
+Beethoven X（Balancer 分叉）：在 Velodrome 上建立稳定币池。
+
+Kwenta（合成资产交易平台）：集成 Velodrome 流动性。
+
+标志事件：2023 年 5 月，Velodrome 的稳定币交易量占比 Optimism 生态 超 60%。
+
+5. Velodrome V2 升级（2023 年 3 月）
+关键改进：
+
+引入 “自动复合贿赂收益” 功能，提升 veVELO 持有者的收益效率。
+
+优化 Gas 费用，降低用户参与成本。
+
+标志事件：升级后 TVL 单月增长 40%，突破 3 亿美元。
+
+6. 应对 Aerodrome 的竞争（2023 年 8 月后）
+2023 年 8 月：Coinbase 支持的 Aerodrome 上线 Base 链，并随后扩展至 Optimism，直接挑战 Velodrome。
+
+Velodrome 通过 提高贿赂奖励 和 优化代币释放 应对竞争。
+
+标志事件：2024 年 Q1，Velodrome 在 Optimism 上仍保持 ~50% 的稳定币交易份额，但 TVL 被 Aerodrome 部分分流。
+
+7. 其他生态资助与里程碑
+Gitcoin 资助：Velodrome 团队曾获得 Gitcoin 社区捐赠，用于开发工具和文档。
+
+Chainlink 预言机支持：2023 年集成 Chainlink 数据源，提升价格喂价安全性。
+
+跨链流动性尝试：2024 年探索与其他 L2（如 Arbitrum）的桥接合作，但尚未大规模推进。
+
+总结：Velodrome 的关键成功因素
+Optimism 官方支持：早期 OP 代币激励使其快速崛起。
+
+ve(3,3) 模型优化：贿赂机制和资本效率高于传统 DEX。
+
+生态整合：与 Synthetix、Thales 等头部协议合作，成为流动性枢纽。
+
+应对竞争：在 Aerodrome 的冲击下仍保持 Optimism 的重要地位。
+
+
+### 2025.04.06
+1. Optimism 生态的流动性中心
+
+Velodrome 仍是 Optimism 上最大的 ve(3,3) DEX，但 Aerodrome 正在 Optimism 上扩张，竞争加剧。
+
+核心优势：
+
+深度整合 Optimism 生态（如 Synthetix、Kwenta）。
+
+稳定币交易对（如 USDC/DAI）仍占据主导地位。
+
+2. 与 Aerodrome 的竞争
+Aerodrome（Base 链官方 DEX） 在 2023 年 8 月上线后，TVL 迅速增长，并扩展到 Optimism，分流了部分 Velodrome 的流动性。
+
+Velodrome 的应对策略：
+
+提高 贿赂激励（如项目方给 veVELO 持有者的额外奖励）。
+
+优化 交易手续费分配（100% 给 veVELO 持有者）。
+
+3. 代币经济与治理
+（1）VELO 代币现状
+流通市值：~5000 万美元
+
+通胀控制：通过 veVELO 锁定机制（1-4 年）减少抛压。
+
+主要用途：
+
+流动性挖矿奖励（LP 获得 VELO）。
+
+治理投票（锁定 VELO 获得 veVELO）。
+
+（2）veVELO 持有者收益
+收入来源：
+
+交易手续费（0.02%-0.05%）。
+
+贿赂收入（项目方支付激励）。
+
+年化收益率（APR）：约 10%-30%（取决于市场活跃度）。
+
+4. 最新动态与未来计划
+（1）近期重要事件
+2024 年 Q2：
+
+与 Mode Network（OP Stack L2） 合作，探索跨链流动性。
+
+集成 Chainlink 低延迟预言机，提升交易安全性。
+
+2024 年 Q3 路线图：
+
+优化 跨链交易体验（可能支持 Arbitrum）。
+
+推出 新的激励计划 应对 Aerodrome 竞争。
+
+（2）潜在挑战
+Aerodrome 的强势增长：Coinbase 支持的 Base 链生态更具资源优势。
+
+Optimism 生态增长放缓：相比 Base 和 Blast，Optimism 近期新项目较少。
+
+5. 结论：Velodrome 的未来展望
+✅ 优势：
+
+仍是 Optimism 流动性核心枢纽，尤其适合稳定币交易。
+
+ve(3,3) 模型成熟，贿赂机制仍具吸引力。
+
+⚠️ 风险：
+
+Aerodrome 的多链扩张 可能进一步挤压市场份额。
+
+VELO 代币价格疲软，需更多用例支撑价值。
+
+未来关键点：
+
+能否在 Optimism 生态 保持不可替代性？
+
+是否会扩展至 其他 L2（如 Arbitrum、Mode） 以寻求新增长？
+
+目前，Velodrome 仍是 Optimism 上最重要的 DEX 之一，但需持续创新以应对竞争。
+
+### 2025.04.07
+
 <!-- Content_END -->
