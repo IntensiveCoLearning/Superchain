@@ -120,8 +120,9 @@ https://defillama.com/chains
 | [xiao1shen](https://github.com/IntensiveCoLearning/Superchain/blob/main/xiao1shen.md) | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ |   | | | | | |
 | [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | | | | | | | |
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   | | | | | |
-| [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ |   | | | | | |
+| [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
