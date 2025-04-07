@@ -402,11 +402,7 @@ sudo chattr +i /etc/resolv.conf
 
 四、通过代理（我使用的是 Clash Verge ）让 Ubuntu 虚拟机联网
 
-1.确认 Clash Verge 配置
-
-
-
-
+1.确认 Clash Verge 配置  
 查看 Clash Verge 的系统托盘图标或界面，找到 HTTP 端口（我是7899）。打开“局域网连接”选项。
 
 2.virtualbox网络选择NAT。
@@ -421,7 +417,9 @@ sudo mkdir -p /etc/systemd/system/docker.service.d
 ```bash
 sudo mkdir /etc/systemd/system/docker.service.d/http-proxy.conf
 ```
-并在该文件中添加相关环境变量。需要注意，此处：192.168.234.1要用主机IPV4地址代替；7899：看1.中 clash verge 的 http 代理地址。
+并在该文件中添加相关环境变量。  
+需要注意，此处：`192.168.234.1` 要用主机IPV4地址代替;  
+`7899` ：看1.中 clash verge 的 http 代理地址。
 ```bash
 [Service]
 Environment="HTTP_PROXY=http://192.168.234.1:7899/"
@@ -430,10 +428,8 @@ Environment="NO_PROXY=localhost,127.0.0.1"
 ```
 按下：
 
-Ctrl + O 保存
-
-Enter 确认文件名
-
+Ctrl + O 保存  
+Enter 确认文件名  
 Ctrl + X 退出编辑器
 
 
