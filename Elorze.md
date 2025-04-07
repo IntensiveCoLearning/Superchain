@@ -309,7 +309,10 @@ node -v
 npm -v
 ```
 
-二、安装 Docker 和 Docker Compose
+二、安装 Docker 和 Docker Compose   
+
+参考文档：https://yeasy.gitbook.io/docker_practice/install/ubuntu
+
 1.安装一些基础软件包，确保系统支持 HTTPS 源和密钥管理
 ```bash
 sudo apt install -y apt-transport-https ca-certificates gnupg
@@ -351,7 +354,8 @@ newgrp docker
 ```
 
 三、~~修改 Ubuntu 虚拟机中的 DNS 设置，配置 8.8.8.8 和 1.1.1.1。使 Docker 就能更顺畅地联网。~~ 这种方法失败了！见四
-1.打开终端，先检查一下当前 DNS 设置
+
+1.~~打开终端，先检查一下当前 DNS 设置~~
 ```bash
 cat /etc/resolv.conf
 ```
@@ -362,7 +366,7 @@ nameserver 127.0.0.53
 ```
 这说明系统用的是 systemd-resolved，我们可以暂时覆盖它。
 
-2.编辑 resolv.conf 文件
+2.~~编辑 resolv.conf 文件~~
 ```bash
 sudo nano /etc/resolv.conf
 ```
@@ -378,6 +382,7 @@ Ctrl + O 保存
 Enter 确认文件名
 
 Ctrl + X 退出编辑器
+
 
 3.防止系统自动还原 /etc/resolv.conf
 ```bash
@@ -396,7 +401,9 @@ sudo chattr +i /etc/resolv.conf
 ```
 
 四、通过代理（我使用的是 Clash Verge ）让 Ubuntu 虚拟机联网
+
 1.确认 Clash Verge 配置
+
 查看 Clash Verge 的系统托盘图标或界面，找到 HTTP 端口（我是7899）。打开“局域网连接”选项。
 
 2.virtualbox网络选择NAT。
