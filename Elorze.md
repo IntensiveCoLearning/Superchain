@@ -404,6 +404,9 @@ sudo chattr +i /etc/resolv.conf
 
 1.确认 Clash Verge 配置
 
+
+
+
 查看 Clash Verge 的系统托盘图标或界面，找到 HTTP 端口（我是7899）。打开“局域网连接”选项。
 
 2.virtualbox网络选择NAT。
