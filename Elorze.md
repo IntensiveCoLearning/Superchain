@@ -270,19 +270,202 @@ Hardhat 默认配置使用 127.0.0.1（本地地址）作为主机，8545 作为
 今天得知op stack本地部署最好不要用windows系统，而应该用unix虚拟机……  
 
 一、下载virtualbox和ubuntu。  
-虚拟电脑内存12288MB，硬盘30GB，显存64。
+虚拟电脑内存12288MB，硬盘30GB，显存64。  
+
+在这里遇到了虚拟机打不开终端的情况，解决：https://blog.csdn.net/m0_59724528/article/details/128395442
 
 
+### 2025.04.07
+在虚拟机中尝试部署。  
+
+一、
+1.打开虚拟机终端，切换到root:  
+更新系统并安装一些必备工具：
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl wget git build-essential lsb-release ca-certificates software-properties-common
+```
+
+2.安装nvm
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash      # 从nvm的github获取
+source ~/.bashrc       # 刷新终端环境
+nvm --version     # 验证安装
+```
+
+3.安装当前最新的长期支持（LTS）版本的 Node.js
+```bash
+nvm install --lts
+```
+
+4.使用已安装的 LTS 版本
+```bash
+nvm use --lts
+```
+
+5.确认安装成功
+```bash
+node -v
+npm -v
+```
+
+二、安装 Docker 和 Docker Compose
+1.安装一些基础软件包，确保系统支持 HTTPS 源和密钥管理
+```bash
+sudo apt install -y apt-transport-https ca-certificates gnupg
+```
+
+2.下载 Docker 官方的 GPG 密钥并转换为二进制格式，存放到 /usr/share/keyrings/
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+3.动态生成 Docker 的 APT 源配置，基于当前系统的架构（如 amd64）和 Ubuntu 版本（如 focal、jammy）
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+4.更新 apt 软件包缓存，并安装 docker-ce
+```bash
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+6.将当前用户添加到 docker 组，允许非 root 用户运行 Docker 命令
+```bash
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER    # $USER 是当前登录的用户名
+```
+直接退出当前终端再重新登录或者执行：
+```bash
+newgrp docker
+
+```
+
+三、~~修改 Ubuntu 虚拟机中的 DNS 设置，配置 8.8.8.8 和 1.1.1.1。使 Docker 就能更顺畅地联网。~~ 这种方法失败了！见四
+1.打开终端，先检查一下当前 DNS 设置
+```bash
+cat /etc/resolv.conf
+```
+看看输出中有没有 nameserver 的设置，比如：
+```bash 
+nginx
+nameserver 127.0.0.53
+```
+这说明系统用的是 systemd-resolved，我们可以暂时覆盖它。
+
+2.编辑 resolv.conf 文件
+```bash
+sudo nano /etc/resolv.conf
+```
+在打开的编辑器中，删除原来的内容，然后粘贴以下两行
+```bash
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+```
+按下：
+
+Ctrl + O 保存
+
+Enter 确认文件名
+
+Ctrl + X 退出编辑器
+
+3.防止系统自动还原 /etc/resolv.conf
+```bash
+sudo chattr +i /etc/resolv.conf
+```
+如果这步报错，更改输入：
+```bash
+# 1. 删除原来的符号链接
+sudo rm /etc/resolv.conf
+
+# 2. 新建 resolv.conf 并写入 DNS 配置
+echo -e "nameserver 8.8.8.8\nnameserver 1.1.1.1" | sudo tee /etc/resolv.conf
+
+# 3. 上锁防止被覆盖
+sudo chattr +i /etc/resolv.conf
+```
+
+四、通过代理（我使用的是 Clash Verge ）让 Ubuntu 虚拟机联网
+1.确认 Clash Verge 配置
+查看 Clash Verge 的系统托盘图标或界面，找到 HTTP 端口（我是7899）。打开“局域网连接”选项。
+
+2.virtualbox网络选择NAT。
+
+3.在 Ubuntu 内部配置代理  
+可参考这篇文档：https://yeasy.gitbook.io/docker_practice/advanced_network/http_https_proxy  
+为 dockerd 创建配置文件夹
+```bash
+sudo mkdir -p /etc/systemd/system/docker.service.d
+```
+为 dockerd 创建 HTTP/HTTPS 网络代理的配置文件，文件路径是 /etc/systemd/system/docker.service.d/http-proxy.conf 。
+```bash
+sudo mkdir /etc/systemd/system/docker.service.d/http-proxy.conf
+```
+并在该文件中添加相关环境变量。需要注意，此处：192.168.234.1要用主机IPV4地址代替；7899：看1.中 clash verge 的 http 代理地址。
+```bash
+[Service]
+Environment="HTTP_PROXY=http://192.168.234.1:7899/"
+Environment="HTTPS_PROXY=http://192.168.234.1:7899/"
+Environment="NO_PROXY=localhost,127.0.0.1"
+```
+按下：
+
+Ctrl + O 保存
+
+Enter 确认文件名
+
+Ctrl + X 退出编辑器
 
 
+4.刷新配置并重启 docker 服务
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
+5.测试 Docker 是否安装正确
+```bash
+docker run --rm hello-world
+```
+如果出现下面的内容，则成功：
+```bash
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+b8dfde127a29: Pull complete
+Digest: sha256:308866a43596e83578c7dfa15e27a73011bdd402185a84c5cd7f32a88b501a24
+Status: Downloaded newer image for hello-world:latest
 
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
 
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
 
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
 
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
 
-
-
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
 
 
 ### 2025.07.12
