@@ -41,4 +41,18 @@ OP Stack 是一个模块化、开源的区块链架构，允许不同的 Rollup 
 后续需要参与 Security Council 治理，超级链中的 L2 需要接受 Security Council 的管理，以确保升级安全。升级前需要投票通过。恶意行为可以导致 L2 被移除超级链（如 Sequencer 作恶）。
 搭建一个链核心点是 OP Stack L2 Rollups 的性能，其吞吐量一般有这几个因素影响：Sequencer 处理速度（交易排序和执行能力）、L1 结算速率（打包 L2 数据到 L1 的时间）、DA 方案。这些可能还是受项目方自身实力的影响。
 
+### 2025.04.04
+今天学习一下超级链生态的Base链，目前Base链应该是超级链生态最强之链了，目前Base也称为ETH生态最活跃的Layer2
+https://app.artemisanalytics.com/flows?tab=flow
+背靠Coinbase，架构也是采用OP Stack，基本与Optimism技术架构一致，唯一不同的是，Base更为中心化，虽然大家都是中心化排序器，但是Base没有采用Fault Proof，而Base由于受监管约束，无发币计划，从去中心化社区角度也就没有共识.
+在我看来，目前base能表现出如此高的活跃度和繁荣度，离不开政治风向和rwa赛道的推进，Coinbase跟特朗普团队关系不一般，而且已经拿到了证券代币化凭证，而rwa方面，Coinbase计划2025年推出“BASE Securities Hub”，让股票、债券这些传统资产也能变成代币交易，预计还能拉来千亿美元的机构资金。
+
+### 2025.04.05
+
+
+### 2025.04.06
+
+
+### 2025.04.07
+
 <!-- Content_END -->
