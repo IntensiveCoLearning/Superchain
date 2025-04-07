@@ -304,7 +304,12 @@ Bedrock升级背后的"超级链"布局：
 
 ### 2025.04.08
 
-笔记内容
+**开始第 2 周的主题学习：实操环节：超级链分析（随机挑选 5 个超级链进行整体分析，分析应用，生态位）**
+
+**Superchain**: Optimism, Base, Soneium, Unichain, Mint, Hashkey, Ink, Zora, Mode, BOB,Cyber, Redstone, WorldChain.etc
+**Adoption**: Velodrome, Aelodrome, Sonex, Pendle, Extra Finance, Ironclad Finance,etc…
+
+
 
 ### 2025.04.09
 
