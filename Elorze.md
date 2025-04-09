@@ -474,5 +474,52 @@ For more examples and ideas, visit:
 ```
 
 
+### 2025.04.09
+五、安装 Go (golang)  
+OP Stack 部分组件是 Go 写的：
+```bash
+wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+source ~/.bashrc
+
+go version
+```
+
+六、克隆 OP Stack 仓库  
+~~使用 superchain-registry 作为部署模板：~~
+```bash
+git clone https://github.com/ethereum-optimism/superchain-registry.git
+cd superchain-registry
+```
+研究了一下发现：  
+ superchain-registry 仓库（生态）  
+用途：这是 Optimism 超级链（Superchain）的官方注册表，包含已部署的链（如 OP Mainnet、Base 等）的配置信息（链 ID、RPC 端点、合约地址等）。如果你需要与现有的 Superchain 链交互（而非自己部署），可以引用此仓库。  
+适合场景：  
+开发需要兼容多链的 dApp（如读取不同链的状态）。  
+查询 Optimism 生态链的元数据。
+
+optimism 仓库（核心）  
+用途：这是 OP Stack 的核心代码库，包含节点客户端（op-node）、批处理器（op-batcher）、故障证明（op-proposer）等组件。如果你想从头开始部署一个自定义的 OP Stack 链（如 L2 或 L3），这是必须的。  
+适合场景：  
+部署本地开发网或测试网。  
+理解 OP Stack 的工作原理（Rollup 机制、交易流程等）。  
+修改核心逻辑或自定义链的行为。
+
+综上，选择还是先安装optimism仓库：  
+```bash
+# 克隆仓库
+git clone https://github.com/ethereum-optimism/optimism.git #这步应该还没结束，晚上或者明天再来看看
+```
+
+七、安装依赖  
+进入项目目录安装依赖（Node.js 和 Go 模块）：
+
+
+
+
+
+
 ### 2025.07.12
 <!-- Content_END -->
