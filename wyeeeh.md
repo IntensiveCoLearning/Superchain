@@ -228,5 +228,36 @@ Optimism 基金会执行链下检查来验证合规性。
 历史完整性检查可识别链历史中的差异，包括无效的状态转换。只有自启动以来未受 Optimism 安全委员会管理的链才需要进行这些检查。
    - Optimism 基金会将根据需要评估这些差异。如果基金会认为，这些差异在未来将该链添加为标准 Rollup 后，可能会违反Law of Chains（例如，用户保护），则即使满足本文档中的所有其他标准，基金会也会拒绝将该链纳入。
 
+### 2025.04.09
+继续阅读**文章：[The Blockspace and Standard Rollup charters](https://docs.optimism.io/superchain/blockspace-charter)**
+
+**The Superchain Registry 超级链注册中心与的作用**
+
+通过与标准 Rollup 章程集成，注册中心提供了一个自动化且透明的验证系统。这确保了区块链能够独立地证明其合规性。
+- **验证版本和配置**： 注册中心以标准汇总章程(Standard Rollup Charter)的形式验证链是否符合治理批准的标准。
+- **添加为标准汇总章程**： 一旦注册表验证链符合标准条件，它就会通过将其 `superchain_level` 值设置为 2 将其提升为“标准”。
+
+在 superchain-registry repo 中，“晋升(promotion)”一条链（即将其 `superchain_level` 设置为 1 ）将成为通过链下标准和历史完整性检查的权威指标。因此，社区可以通过检查以下内容来确定某条链是否属于本章程的适用范围
+社区可以通过检查以下内容来确定某条链是否属于本章程的适用范围：
+
+- 该链通过了所有 Onchain 标准检查
+- 该链已被基金会纳入 `superchain-registry` 库。
+
+**Governing Policies 治理政策的作用**
+
+标准 Rollup 的治理政策为处理 Law of Chains 中的利益相关者保护措施被违反时提供了响应机制
+- 所有政策执行都需要通过 `L1ProxyAdmin` 角色，目前由基金会和治理委员会共同控制的 2/2 多签管理
+- `SystemConfigOwner` 作为核心角色，在当前版本中拥有更改链配置值的权限，需要在 Chain Governor 和 Chain Servicer 之间保持平衡，类似于传统公司治理中董事会和管理层的关系，确保了权力制衡
+
+- 链治理者 Chain Goverancer可以将配置更新权限委托给 Servicer，提高运营效率；但系统配置所有者`SystemConfigOwner` 角色的最终控制权应属于链治理者(Chain governancer)，可以通过治理投票收回或转移权限
+
+- Sequencer 审查监控：防止恶意审查和不合理停机，违规可被社区投票替换。移除链管理者作为 `SystemConfigOwner` 所有者，并任命新的非审查排序器。
+- GasLimit 管理：要求进行公开负载测试并及时响应性能问题，确保网络稳定性
+- 批次提交规范：每 6 小时至少提交一次，最大延迟 12 小时，保障网络活性
+- 费用管理：限制最大费用利润率为 100%，防止经济层面的变相审查。标准 Rollup 应允许最高 100% 的费用保证金（即交易的平均成本不应超过批量提交成本的两倍）。如果链治理者设置的费用保证金超过此上限，社区可以向 Optimism 治理提交投票，罢免该链治理者的系统配置所有者 `SystemConfigOwner` 身份，并降低费用保证金。
+- ResourceMetering：限制低层级系统参数的随意修改，确保协议稳定性；
+   - `SystemConfigOwner` 角色目前能够修改 ResourceMetering 结构体，该结构体是一组低级值，用于设置 L1→L2 消息规则的某些属性。这是一个低级变量，除非协议升级，否则无需更改。
+
+
 
 <!-- Content_END -->
