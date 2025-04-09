@@ -213,23 +213,9 @@ Solidity 的特点：
 支持继承：Solidity 支持合约的继承，使得合约代码可以更易复用和扩展。
 事件和日志：Solidity 可以定义事件，当某个特定操作发生时，触发事件并记录日志，供外部应用查询。
 Gas费用管理：Solidity 允许开发者管理每个操作的 Gas 消耗，以避免合约执行过程中产生过高费用。
-Solidity 合约的简单示例：
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 
-contract SimpleStorage {
-    uint public storedData;  // 状态变量
+智能合约是区块链技术的重要组成部分，通过 自动化、去中心化、不可篡改 等特性，能够为多个行业带来巨大变革，特别是在 DeFi、NFT、供应链管理 等领域。智能合约不仅仅是一个自动执行协议，更是区块链去中心化应用的核心驱动力。
 
-    // 存储数据的函数
-    function set(uint x) public {
-        storedData = x;
-    }
-
-    // 获取存储的数据
-    function get() public view returns (uint) {
-        return storedData;
-    }
-}
 
 
 
