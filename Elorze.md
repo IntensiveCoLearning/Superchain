@@ -513,8 +513,120 @@ optimism 仓库（核心）
 git clone https://github.com/ethereum-optimism/optimism.git #这步应该还没结束，晚上或者明天再来看看
 ```
 
-七、安装依赖  
-进入项目目录安装依赖（Node.js 和 Go 模块）：
+
+
+
+
+
+
+### 2025.04.10
+七、~~安装依赖~~
+进入项目目录安装依赖（Node.js 和 Go 模块）：  
+    先尝试了`npm install`，发现`optimsm`库里并不直接有`package.json`文件。依赖可能通过 Foundry 或其他方式管理。 
+
+八、
+安装 Foundry
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+source /home/user/.bashrc
+```
+安装 pnpm
+```bash
+npm install -g pnpm
+```
+
+九、编译智能合约  
+contracts-bedrock 使用 Foundry 管理合约。进入该目录并编译：
+```bash
+cd packages/contracts-bedrock
+sudo apt install snap
+forge build
+```
+
+十、初始化 Hardhat 项目 
+初始化 Hardhat
+```bash
+npx hardhat init
+```
+选择 “Create a JavaScript project” 或 “Create a TypeScript project”。  
+这会生成 hardhat.config.js 和基本项目结构。 
+前面都选y，到`install sample project's dependencies`可以选n
+```bash
+npm install --save-dev "hardhat@^2.22.19" "@nomicfoundation/hardhat-toolbox@^5.0.0"
+```
+
+十一、本地部署`op stack`  
+打开 hardhat.config.js    
+添加 getting-started 网络配置  
+```bash
+const { task } = require("hardhat/config");
+const fs = require("fs");
+const path = require("path");
+
+module.exports = {
+  solidity: "0.8.9",
+  networks: {
+    "getting-started": {
+      url: "http://127.0.0.1:8545", // Hardhat 默认 RPC
+      accounts: [
+        "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" // Hardhat 默认私钥
+      ]
+    }
+  }
+};
+
+// ✅ 自定义任务：生成 OP Stack 部署配置文件
+task("generate-deploy-config", "Generate deploy config for a network")
+  .addParam("name", "The name of the deploy-config file to generate (e.g. local)")
+  .setAction(async (taskArgs, hre) => {
+    const config = {
+      l1ChainID: 31337,
+      l2ChainID: 420,
+      l1StartingBlockTag: "latest",
+      l2OutputOracleStartingTimestamp: 0,
+      l1BlockTimeSeconds: 2,
+      l2BlockTimeSeconds: 2,
+      l2GenesisBlockGasLimit: "15000000",
+      l2GenesisChainID: 420,
+      l2GenesisBaseFeePerGas: "0x3b9aca00",
+      l2GenesisL1FeeRecipient: "0x4200000000000000000000000000000000000011",
+      l2GenesisSequencerAddress: "0x4200000000000000000000000000000000000011",
+      l2GenesisStateRoot: "0x0000000000000000000000000000000000000000000000000000000000000000"
+    };
+
+    const outputPath = path.join(__dirname, "deploy-config", `${taskArgs.name}.json`);
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
+
+    console.log(`✅ Generated deploy config at: ${outputPath}`);
+  });
+
+```
+确保本地节点（如 Hardhat 或 Anvil）运行在 8545 端口：  
+```bash
+npx hardhat node
+```
+这个时候就`npx hardhat node` 就在运行本地区块链节点了，它会一直保持运行状态，等待用户用另一个终端执行部署或交互命令。  
+打开新终端窗口。
+
+十二、
+在新终端中，进入到`/optimism/packages/contracts-bedrock`：  
+运行以下命令，会在项目根目录生成 deploy-config/local.json：
+```bash
+npx hardhat generate-deploy-config --name local
+```
+输出：  
+```bash
+✅ Generated deploy config at: /home/user/optimism/optimism/packages/contracts-bedrock/deploy-config/local.json
+```
+开心呀！
+
+
+
+
+
+
+
 
 
 
