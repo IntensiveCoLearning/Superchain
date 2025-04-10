@@ -233,4 +233,112 @@ tarkNet的L1-L2共享AMM：用户可在L2交易，结算在L1完成\
 
 
 
+### 2025.04.10
+看了一看op stack的本地部署。
+
+OP Stack 的部署过程依赖于一组 JSON 配置文件，告诉系统在部署 L2 时：  
+使用哪个 L1 链？  
+从哪个 block 开始同步？  
+L2 的 genesis 区块如何设定？  
+各种链参数（区块时间、初始费用、地址等）是多少？  
+本地部署时，我们通常会使用 Hardhat 起一个本地 L1 链（chainId: 31337），并部署一个 L2（chainId: 420）。所以就需要这个脚本帮你把这些设定写入一个配置文件。
+
+看了一下朋友的文件，她的:
+```bash
+const { task } = require("hardhat/config");
+const fs = require("fs");
+const path = require("path");
+
+module.exports = {
+  solidity: "0.8.9",
+  networks: {
+    "getting-started": {
+      url: "http://127.0.0.1:8545", // Hardhat 默认 RPC
+      accounts: [
+        "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" // Hardhat 默认私钥
+      ]
+    }
+  }
+};
+
+// ✅ 自定义任务：生成 OP Stack 部署配置文件
+task("generate-deploy-config", "Generate deploy config for a network")
+  .addParam("name", "The name of the deploy-config file to generate (e.g. local)")
+  .setAction(async (taskArgs, hre) => {
+    const config = {
+      l1ChainID: 31337,
+      l2ChainID: 420,
+      l1StartingBlockTag: "latest",
+      l2OutputOracleStartingTimestamp: 0,
+      l1BlockTimeSeconds: 2,
+      l2BlockTimeSeconds: 2,
+      l2GenesisBlockGasLimit: "15000000",
+      l2GenesisChainID: 420,
+      l2GenesisBaseFeePerGas: "0x3b9aca00",
+      l2GenesisL1FeeRecipient: "0x4200000000000000000000000000000000000011",
+      l2GenesisSequencerAddress: "0x4200000000000000000000000000000000000011",
+      l2GenesisStateRoot: "0x0000000000000000000000000000000000000000000000000000000000000000"
+    };
+
+    const outputPath = path.join(__dirname, "deploy-config", `${taskArgs.name}.json`);
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
+
+    console.log(`✅ Generated deploy config at: ${outputPath}`);
+  }); 
+```
+
+我研究了一下这段代码为什么这样写：  
+```bash
+const config = {
+  l1ChainID: 31337,
+```
+设置本地 L1 的 chain ID，Hardhat 默认是 31337。
+
+```bash
+  l2ChainID: 420,
+```
+L2 网络的 chain ID。在 OP Stack 的测试中，420 是经典的默认值（也是 Optimism Goerli 的链 ID）。
+
+```bash
+  l1StartingBlockTag: "latest",
+```
+告诉 OP Stack 从当前本地 L1 的最新区块作为起始区块进行同步。这在本地开发中最方便。
+
+ l2OutputOracleStartingTimestamp: 0,
+通常是 OP Stack 的 L2 Oracle 启动的时间戳，这里设为 0 表示从时间戳为0的地方开始（开发用）。
+
+```bash
+  l1BlockTimeSeconds: 2,
+  l2BlockTimeSeconds: 2,
+```
+指定 L1 和 L2 的区块时间（以秒为单位），2秒是开发用的快节奏设置，有利于快速测试。
+
+```bash
+  l2GenesisBlockGasLimit: "15000000",
+```
+L2 初始区块的 Gas 上限，设为 15M 是比较典型的值，符合 EIP-1559 建议。
+
+```bash
+  l2GenesisChainID: 420,
+```
+L2 的链 ID，必须和 l2ChainID 一致。
+
+```bash
+  l2GenesisBaseFeePerGas: "0x3b9aca00",
+```
+L2 的 genesis 区块起始 base fee（单位为 wei），0x3b9aca00 = 1 Gwei。
+
+```bash
+  l2GenesisL1FeeRecipient: "0x4200000000000000000000000000000000000011",
+  l2GenesisSequencerAddress: "0x4200000000000000000000000000000000000011",
+```
+L2 初始区块中设置的费用接收者和 sequencer 地址。0x420...11 是 OP Stack 中用于测试的“魔法地址”（magic address），本地部署时建议这样设。
+
+```bash
+  l2GenesisStateRoot: "0x000...000",
+```
+初始化的状态根，0 值表示我们不使用预加载状态，也是一种开发简化方式。
+
+
 <!-- Content_END -->
