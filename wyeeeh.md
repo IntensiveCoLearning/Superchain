@@ -258,6 +258,21 @@ Optimism 基金会执行链下检查来验证合规性。
 - ResourceMetering：限制低层级系统参数的随意修改，确保协议稳定性；
    - `SystemConfigOwner` 角色目前能够修改 ResourceMetering 结构体，该结构体是一组低级值，用于设置 L1→L2 消息规则的某些属性。这是一个低级变量，除非协议升级，否则无需更改。
 
+### 2025.04.10
+阅读文章 **[What makes a chain standard?](https://docs.optimism.io/superchain/standard-configuration)**
 
+#### OP Stack 中的标准链rollup原则
+- **Technical conformance 技术一致性**: 遵守规范中定义的共识参数、策略参数、管理角色和服务角色。 
+   - 技术文档: [**OP Stack Configurability Specification**](https://specs.optimism.io/protocol/configurability.html?utm_source=op-docs&utm_medium=docs)
+- **Governance alignment  治理协调**: 与超级链生态系统保持一致的透明和协作决策。
+- **Interoperability  互操作性**: 保持与超级链协议级跨链交互的兼容性。
+
+### 2025.04.11
+继续阅读文章 **[What makes a chain standard?](https://docs.optimism.io/superchain/standard-configuration)**
+
+**`op-deployer`在标准化中的作用**
+   - 提供默认值： `op-deployer` 提供符合标准规范的默认值。
+   - 易于在标准内进行定制： `op-deployer` 允许覆盖默认值。例如可以将 L2 区块时间的标准值 1 秒进行覆盖。
+   - 通过使用 `op-deployer`，链的运维者可以降低链部署的复杂性，同时确保与 Superchain 标准保持一致。
 
 <!-- Content_END -->
