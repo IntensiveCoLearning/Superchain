@@ -611,7 +611,7 @@ npx hardhat node
 
 十二、
 在新终端中，进入到`/optimism/packages/contracts-bedrock`：  
-运行以下命令，会在项目根目录生成 deploy-config/local.json：
+运行以下命令，为部署准备好参数。会在项目根目录生成 deploy-config/local.json：
 ```bash
 npx hardhat generate-deploy-config --name local
 ```
@@ -623,7 +623,89 @@ npx hardhat generate-deploy-config --name local
 
 
 ### 2025.04.11
+OP Stack 的部署需要本地 Hardhat 节点保持“运行状态”，否则部署就会失败。  
+确认是否需要重启本地节点:  
+```bash
+curl -X POST http://127.0.0.1:8545 \
+-H "Content-Type: application/json" \
+-d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+```
+如果看到一个像 "result": "0x..." 的响应，就表示节点还在运行。  
+如果看到 Connection refused 或 Failed to connect，说明节点已经关闭了，需要重新运行。
+
+如果节点已关闭，重新启动的方法如下:  
+1.**打开虚拟机，进入昨天运行 Hardhat 节点的项目目录：**
+```bash
+cd /home/user/optimism/optimism/packages/contracts-bedrock
+```
+2.**重新启动本地 Hardhat 节点：**
+```bash
+npx hardhat node
+```
+🔁 注意：这个节点是临时的，重启之后所有之前部署的合约都会“消失”，你需要重新部署一遍。  
+**3.然后在另一个终端窗口里重新部署合约。这里先下载下依赖：**  
+```bash
+pnpm install
+
+npm install -D ts-node
+```
+
+
+然后部署：
+```bash
+npx ts-node ./scripts/deploy.ts \
+  --network getting-started \
+  --deploy-config ./deploy-config/local.json
+```
+
+
 一、部署 Layer 1 合约
+**1.创建部署脚本文件**
+在 contracts-bedrock/ 目录下创建一个新文件：  
+```bash
+cd ~/optimism/optimism/packages/contracts-bedrock
+nano deploy.js
+```
+粘贴以下内容：
+```js
+const { ethers } = require("hardhat");
+
+async function main() {
+  console.log("🚀 Connecting to local Hardhat network...");
+  const [deployer] = await ethers.getSigners();
+  console.log("✅ Deployer address:", deployer.address);
+
+  // 示例：部署 SystemConfig（contracts/SystemConfig.sol）
+  const SystemConfig = await ethers.getContractFactory("SystemConfig");
+  const systemConfig = await SystemConfig.deploy(
+    2, // _overhead
+    3, // _scalar
+    deployer.address, // _batcherHash
+    deployer.address, // _gasLimitOwner
+    deployer.address, // _unsafeBlockSigner
+    "0x4200000000000000000000000000000000000000" // _configOwner
+  );
+  await systemConfig.deployed();
+  console.log("✅ SystemConfig deployed to:", systemConfig.address);
+}
+
+main().catch((error) => {
+  console.error("❌ Deployment failed:", error);
+  process.exit(1);
+});
+```
+**2.安装依赖**
+```bash
+npm install --save-dev hardhat ethers
+```
+**3.确保本地节点运行中**
+这个前面已经确定了。
+**4.运行部署脚本！**
+回到放 deploy.js 的那个目录：
+```bash
+node deploy.js
+```
+
 
 
 
