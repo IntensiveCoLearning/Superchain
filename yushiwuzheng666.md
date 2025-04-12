@@ -97,6 +97,16 @@ PT-stETH（到期可赎回 stETH 本金）和 YT-stETH（未来一段时间内�
 
 
 ### 2025.04.12
+今天学习Redstone，我关注这个项目比较早，最开始是Arweave生态项目之一，主做预言机。
+竞品分析：
+Chainlink：主要针对 EVM、OG DeFi，主要采用 push model，通过桥接使用 CCIP 和昂贵的集成设置提供可靠数据，仅支持少量区块链；
+Pyth：主要针对非 EVM，Perps 市场，主要采用 pull model，使用 Wormhole 作为跨链中继器，专注于数据推送质量；
+RedStone：任意链、任意市场，提 push model 和 pull model，使用 eigenlayer AVS 进行具成本效益的链上验证，具有 wrapped BTC 资产的储备证明等。
 
+预言机最重要是安全性，RedStone 可以通过使用 EigenLayer AVS 框架来验证价格反馈数据的准确性和有效性，从而实现更高效的 Gas 花费和可扩展性。
+AVS 为 Actively Validated Service，是 Eigenlayer 生态里最重要的概念，AVS 简单地说就是一个需要抵押以验证"任务"的协议、服务或系统。AVS 服务本身承担了获取价格、上报价格的工作，同时 AVS 还对应着它的服务管理合约——Service Manager，该合约与 Eigenlayer 合约通信，其中包含与服务功能相关的状态，例如运行服务的操作者以及用于保护服务的押金数量。
+传统的 oracle 价格推送模型通过从各种来源收集数据并通过 DDL（数据定义语言）和数据消费模块对其进行验证来工作。由于链上验证过程需要大量的 Gas 费，使其变得相当昂贵。借助 RedStone 的 AVS，RedStone 可以通过链下处理数据来提供高度优化的验证 Gas。
+RedStone流程如下：AVS 运营商通过数据源模块获取市场价格和 TWAP 费率，验证其准确性，然后将验证结果反馈到链上。
+由于大多数计算工作都是在链下执行的，同时通过 AVS 保持可信任和验证，相比竞品，RedStone 提供了成本更低的方案。
 
 <!-- Content_END -->
