@@ -55,4 +55,30 @@ https://app.artemisanalytics.com/flows?tab=flow
 
 ### 2025.04.07
 
+### 2025.04.08
+
+
+### 2025.04.09
+做了一个Base看板：https://flipsidecrypto.xyz/MarshalOrange/base-wang-luo-shu-ju-mei-ri-kan-ban-0_UaxK
+数据对比Layer2确实属于碾压。
+
+
+### 2025.04.10
+学习下Velodrome，功能：
+AMM（自动做市商）支持稳定币池和波动性资产池。
+veNFT 锁仓投票机制（治理+奖励引导）。
+Bribe 机制，用于激励投票。
+
+官网：https://velodrome.finance
+核心点是veVELO 用户可以将 $VELO 锁仓，获得 veVELO，锁仓时间越长，获得的 veVELO 越多（最长 4 年）。
+veVELO 不能转移，但拥有投票权和激励权。投票激励机制：veVELO 持有者每周投票决定哪个流动性池能获得交易手续费奖励和 $VELO 通胀。
+简单来说就是各项目方可以向投票者提供Bribe激励，而velodrome 用 ve(3,3) 机制把流动性提供者、治理者和项目方的激励整合到了一起。
+
+
+### 2025.04.11
+
+
+### 2025.04.12
+
+
 <!-- Content_END -->
