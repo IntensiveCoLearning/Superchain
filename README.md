@@ -106,7 +106,7 @@ https://defillama.com/chains
 | [wodeche](https://github.com/IntensiveCoLearning/Superchain/blob/main/wodeche.md) | ⭕️ | ⭕️ | ❌ | | | | | | | | | | |
 | [nx-xn2002](https://github.com/IntensiveCoLearning/Superchain/blob/main/nx-xn2002.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   |
 | [wyeeeh](https://github.com/IntensiveCoLearning/Superchain/blob/main/wyeeeh.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   |
-| [stephanie797](https://github.com/IntensiveCoLearning/Superchain/blob/main/stephanie797.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   |
+| [stephanie797](https://github.com/IntensiveCoLearning/Superchain/blob/main/stephanie797.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ |
 | [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ❌ | | | |
 | [WANgrunnzl](https://github.com/IntensiveCoLearning/Superchain/blob/main/WANgrunnzl.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   |
 | [Soleil_YSY](https://github.com/IntensiveCoLearning/Superchain/blob/main/Soleil_YSY.md) | ⭕️ | ✅ | ⭕️ | ❌ | | | | | | | | | |
@@ -122,6 +122,7 @@ https://defillama.com/chains
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
