@@ -300,16 +300,17 @@ https://defillama.com/chains
 
 
 
+
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
-- 总参与人数: 0
-- 完成人数: 0
-- 完成用户: 
-- 全勤用户: 
-- 淘汰人数: 0
-- 淘汰率: 0.00%
-- Fork人数: 0
+- 总参与人数: 18
+- 完成人数: 11
+- 完成用户: nx-xn2002, wyeeeh, stephanie797, WANgrunnzl, yushiwuzheng666, Elorze, CloverSurrey, yyhatb, xiao1shen, JiangQan, hikaae
+- 全勤用户: nx-xn2002, yyhatb
+- 淘汰人数: 7
+- 淘汰率: 38.89%
+- Fork人数: 24
 <!-- STATISTICALDATA_END -->
 
 <!-- END_COMMIT_TABLE -->
