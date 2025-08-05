@@ -110,7 +110,7 @@ https://defillama.com/chains
 | [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ❌ | | | |
 | [WANgrunnzl](https://github.com/IntensiveCoLearning/Superchain/blob/main/WANgrunnzl.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ |
 | [Soleil_YSY](https://github.com/IntensiveCoLearning/Superchain/blob/main/Soleil_YSY.md) | ⭕️ | ✅ | ⭕️ | ❌ | | | | | | | | | |
-| [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ |
+| [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | ⭕️ | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ |
 | [tuwu233](https://github.com/IntensiveCoLearning/Superchain/blob/main/tuwu233.md) | ⭕️ | ⭕️ | ❌ | | | | | | | | | | |
 | [Elorze](https://github.com/IntensiveCoLearning/Superchain/blob/main/Elorze.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ⭕️ |
 | [SpikeSpiegel0929](https://github.com/IntensiveCoLearning/Superchain/blob/main/SpikeSpiegel0929.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ❌ | | | | | | |
@@ -118,10 +118,11 @@ https://defillama.com/chains
 | [Meta11ic0](https://github.com/IntensiveCoLearning/Superchain/blob/main/Meta11ic0.md) | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ❌ |
 | [yyhatb](https://github.com/IntensiveCoLearning/Superchain/blob/main/yyhatb.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [xiao1shen](https://github.com/IntensiveCoLearning/Superchain/blob/main/xiao1shen.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ | ✅ | ⭕️ |   | ❌ | | | | | | | |
+| [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | | | | | | | |
 | [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |
+| [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ |   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
@@ -425,7 +426,7 @@ https://defillama.com/chains
 - 全勤用户: nx-xn2002, yyhatb
 - 淘汰人数: 7
 - 淘汰率: 38.89%
-- Fork人数: 0
+- Fork人数: 24
 <!-- STATISTICALDATA_END -->
 
 <!-- END_COMMIT_TABLE -->
