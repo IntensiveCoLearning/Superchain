@@ -107,21 +107,22 @@ https://defillama.com/chains
 | [nx-xn2002](https://github.com/IntensiveCoLearning/Superchain/blob/main/nx-xn2002.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [wyeeeh](https://github.com/IntensiveCoLearning/Superchain/blob/main/wyeeeh.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |
 | [stephanie797](https://github.com/IntensiveCoLearning/Superchain/blob/main/stephanie797.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ |
-| [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   | ⭕️ | ⭕️ | ❌ | | |
+| [MRzzz-cyber](https://github.com/IntensiveCoLearning/Superchain/blob/main/MRzzz-cyber.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   | ⭕️ | ❌ | | |
 | [WANgrunnzl](https://github.com/IntensiveCoLearning/Superchain/blob/main/WANgrunnzl.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ |
 | [Soleil_YSY](https://github.com/IntensiveCoLearning/Superchain/blob/main/Soleil_YSY.md) | ⭕️ | ✅ | ⭕️ | ❌ | | | | | | | | | |
-| [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ |   | ⭕️ | ✅ | ✅ | ✅ | ✅ |
+| [yushiwuzheng666](https://github.com/IntensiveCoLearning/Superchain/blob/main/yushiwuzheng666.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ⭕️ |   | ✅ | ✅ | ✅ | ✅ |
 | [tuwu233](https://github.com/IntensiveCoLearning/Superchain/blob/main/tuwu233.md) | ⭕️ | ⭕️ | ❌ | | | | | | | | | | |
-| [Elorze](https://github.com/IntensiveCoLearning/Superchain/blob/main/Elorze.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ⭕️ |
+| [Elorze](https://github.com/IntensiveCoLearning/Superchain/blob/main/Elorze.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   | ✅ | ✅ | ✅ | ⭕️ |
 | [SpikeSpiegel0929](https://github.com/IntensiveCoLearning/Superchain/blob/main/SpikeSpiegel0929.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ❌ | | | | | | |
-| [CloverSurrey](https://github.com/IntensiveCoLearning/Superchain/blob/main/CloverSurrey.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ⭕️ | ✅ |
-| [Meta11ic0](https://github.com/IntensiveCoLearning/Superchain/blob/main/Meta11ic0.md) | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |   | ✅ | ⭕️ | ✅ | ✅ | ⭕️ |
+| [CloverSurrey](https://github.com/IntensiveCoLearning/Superchain/blob/main/CloverSurrey.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ |   | ✅ | ✅ | ⭕️ | ✅ |
+| [Meta11ic0](https://github.com/IntensiveCoLearning/Superchain/blob/main/Meta11ic0.md) | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ❌ |
 | [yyhatb](https://github.com/IntensiveCoLearning/Superchain/blob/main/yyhatb.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [xiao1shen](https://github.com/IntensiveCoLearning/Superchain/blob/main/xiao1shen.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [xiao1shen](https://github.com/IntensiveCoLearning/Superchain/blob/main/xiao1shen.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [CHENFANGC](https://github.com/IntensiveCoLearning/Superchain/blob/main/CHENFANGC.md) | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | | | | | | | |
-| [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [JiangQan](https://github.com/IntensiveCoLearning/Superchain/blob/main/JiangQan.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [hikaae](https://github.com/IntensiveCoLearning/Superchain/blob/main/hikaae.md) | ✅ | ✅ | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
@@ -484,11 +485,11 @@ https://defillama.com/chains
 ## 统计数据
 
 - 总参与人数: 18
-- 完成人数: 12
-- 完成用户: nx-xn2002, wyeeeh, stephanie797, WANgrunnzl, yushiwuzheng666, Elorze, CloverSurrey, Meta11ic0, yyhatb, xiao1shen, JiangQan, hikaae
-- 全勤用户: nx-xn2002, yyhatb, xiao1shen
-- 淘汰人数: 6
-- 淘汰率: 33.33%
+- 完成人数: 11
+- 完成用户: nx-xn2002, wyeeeh, stephanie797, WANgrunnzl, yushiwuzheng666, Elorze, CloverSurrey, yyhatb, xiao1shen, JiangQan, hikaae
+- 全勤用户: nx-xn2002, yyhatb
+- 淘汰人数: 7
+- 淘汰率: 38.89%
 - Fork人数: 23
 <!-- STATISTICALDATA_END -->
 
