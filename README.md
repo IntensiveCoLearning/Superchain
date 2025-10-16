@@ -488,6 +488,7 @@ https://defillama.com/chains
 
 
 
+
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
@@ -497,7 +498,7 @@ https://defillama.com/chains
 - 全勤用户: nx-xn2002, yyhatb
 - 淘汰人数: 7
 - 淘汰率: 38.89%
-- Fork人数: 23
+- Fork人数: 24
 <!-- STATISTICALDATA_END -->
 
 <!-- END_COMMIT_TABLE -->
